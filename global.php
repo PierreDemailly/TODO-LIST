@@ -13,4 +13,18 @@ function getData() {
     return $db;
 }
 
+function isOnline() {
+    return !empty($_SESSION['id']);
+}
+
 $db = getData();
+
+function routing($url) {
+    $routes = [
+        "login"
+    ];
+    if(in_array($url, $routes)) 
+        return 'controller/'.$url.'Controller.php';
+    else 
+        return '404';
+}
