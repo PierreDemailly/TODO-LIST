@@ -28,7 +28,7 @@ if(isset($_POST['submit'])) {
     if(!isset($errors)) {
         createUser($pseudo, $email, $password);
         $_SESSION['id'] = getId($email);
-        header('Location: ./home');
+        header('Location: '.BASE_URL.'home/');
     }
 }
 
