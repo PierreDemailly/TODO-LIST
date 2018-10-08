@@ -8,7 +8,7 @@ function getProject($project_id) {
 
 function getLists($project_id) {
   $db  = getData();
-  $req = $db->query("SELECT name FROM list WHERE project_id = '$project_id'");
+  $req = $db->query("SELECT list.id, list.name, task.name FROM list LEFT JOIN task ON list_id = list.id WHERE project_id = '$project_id'");
   $rep = $req->fetchAll();
   return $rep;
 }
@@ -27,7 +27,16 @@ function createList($list_name, $project_id) {
   $db = getData();
   $req = $db->prepare('INSERT INTO list (name, project_id) VALUES (:name, :project_id)');
   $req->execute([
-    ':name' => $list_name,
+    ':name'       => $list_name,
     ':project_id' => $project_id
+  ]);
+}
+
+function createTask($task_name, $list_id) {
+  $db = getData();
+  $req = $db->prepare('INSERT INTO task (name, list_id) VALUES (:name, :list_id)');
+  $req->execute([
+    ':name'    => $task_name,
+    ':list_id' => $list_id
   ]);
 }

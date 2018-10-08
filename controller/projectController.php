@@ -19,6 +19,20 @@ if(isset($_POST['add-list'])) {
   }
 }
 
+if(isset($_POST['add-task'])) {
+  $name = htmlspecialchars($_POST['task-name']);
+
+  $error[] = (empty($name)) ? "Vous devez nommer votre liste." : NULL;
+  $error[] = (strlen($name) < 3) ? "Le nom de votre liste doit faire au moins 3 caractères": NULL;
+  $error[] = (strlen($name) > 100) ? "Le nom de votre liste doit faire maximum 100 caractères": NULL;
+
+  $errors = getErrors($error);
+
+  if(!isset($errors)) {
+    createTask($name, $_POST['list_id']);
+  }
+}
+
 $project = getProject($_GET['id']);
 $lists   = getLists($_GET['id']);
 
