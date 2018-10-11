@@ -1,11 +1,11 @@
-$('#add-project').on('click', function() {
-   $('#new-project').slideToggle();
+$('#form-add').on('click', function() {
+   $('#add-form').slideToggle();
    $(this).toggle();
 });
-$('#cancel-project').on('click', function() {
-   $('#new-project').slideToggle();
-   $('#add-project').slideToggle();
+$('#form-cancel').on('click', function() {
+   $('#add-form').slideToggle();
+   $('#form-add').slideToggle();
 });
 $('.box').on('click', function() {
-   window.location.href = "project.php?id=" + $(this).attr('data-id'); 
+   window.location.href = BASE_URL + "project/" + $(this).attr('data-id');
 });

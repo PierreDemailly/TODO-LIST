@@ -1,6 +1,6 @@
 <div class="container">
     <h2>Liste des projets</h2>
-    <form method="post" id="new-project">
+<form method="post" id="add-form">
     <div class="row">
         <div class="four columns">
             <label for="project-name">Nom du projet</label>
@@ -17,9 +17,14 @@
         </div>
     </div>
     <button class="button-primary" type="submit" name="add-project">Confirmer</button>
-    <button class="button" type="button" id="cancel-project">Annuler</button>
+    <button class="button" type="button" id="form-cancel">Annuler</button>
 </form>
-<button class="button-primary m-top" id="add-project">Nouveau projet</button>
+<?php if(isset($error)) {
+    foreach($error as $err) { ?>
+        <p class="error"><?= $err ?></p>
+    <?php }
+} ?>
+<button class="button-primary m-top" id="form-add">Nouveau projet</button>
     <div class="row">
 <?php foreach($projects as $project): ?>
 <div class="three columns box clickable" data-id="<?= $project->id ?>">
