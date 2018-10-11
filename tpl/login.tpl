@@ -5,7 +5,7 @@
             <?php if(isset($errors)) {
                 foreach($errors as $error) { ?>
             <p class="error"><?= $error ?></p>
-            <?php } 
+            <?php }
             } ?>
             <div class="row">
             <label for="email">Email</label>
@@ -20,6 +20,6 @@
     </div>
     <hr>
     <div class="row center">
-        <a class="button" href="./register">Ou inscris toi, c'est gratuit.</a>
+        <a class="button" href="<?= BASE_URL ?>register/">Ou inscris toi, c'est gratuit.</a>
     </div>
 </div>
