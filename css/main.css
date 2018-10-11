@@ -1,10 +1,10 @@
-#new-project {
+#add-form {
     display:none;
 }
 .box {
     height:150px;
     border:1px solid #dfe6e9;
-    width:100%;    
+    width:100%;
     margin:10px 10px 0 0;
 }
 .title {
@@ -36,6 +36,11 @@
     font-weight:normal;
     text-decoration:underline;
 }
+.m-auto {
+    margin:auto !important;
+    display:block;
+    float:none;
+}
 .clickable {
     cursor:pointer;
 }
@@ -44,4 +49,36 @@
 }
 .container {
     padding-bottom:10px;
+}
+.heading {
+    text-align:center;
+    padding:20px 0;
+    border-bottom: 1px solid #dfe6e9;
+    color:#a29bfe;
+    text-transform:uppercase;
+    font-weight:bold;
+}
+.error {
+    background:#d63031;
+    padding:8px 4px;
+    color:#fff;
+    border-radius:4px;
+}
+.list-box {
+    background:#f5f6fa;
+    margin:10px;
+    padding:5px;
+    border-radius:2px 2px 0 0;
+    border-bottom:4px solid #c23616;
+}
+.list-box ul li {
+    background:#ffffff;
+    list-style:none;
+    padding:4px 8px;
+    margin:5px 0;
+    border-radius: 10px;
+    text-transform:lowercase;
+}
+.list-box ul li::first-letter {
+    text-transform: capitalize;
 }

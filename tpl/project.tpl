@@ -14,11 +14,22 @@
 
   <h3>Listes:</h3>
 <button class="button-primary" id="form-add">Ajouter une liste</button>
-  <?php if(count($lists) > 0) {
-    foreach($lists as $list) { ?>
+  <?php if (count($lists) > 0) {
+        foreach ($lists as $list) {
+        $tasks = explode(',', $list->task_name);
+            ?>
     <div>
-    <div class="four columns" style="border:1px solid red">
-    <p><?= $list->name ?></p>
+    <div class="four columns list-box">
+    <p class="title"><?= $list->name ?></p>
+
+    <?php
+    if(!empty($tasks)) { ?>
+    <ul>
+    <?php foreach($tasks as $task) { ?>
+    <li><?= $task ?></li>
+        <?php } ?>
+    </ul>
+    <?php } ?>
     <form method="post">
     <div class="row">
         <label for="list-name">Ajouter une tâche</label>
@@ -29,8 +40,10 @@
 </form>
 </div>
     </div>
-    <?php }
-   } else {  ?>
+    <?php
+}
+} else { ?>
   <p>Il n'y a pas encore de liste</p>
-  <?php } ?>
+  <?php
+} ?>
 </div>
