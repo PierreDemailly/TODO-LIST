@@ -36,12 +36,10 @@ function createList($list_name, $project_id)
   ]);
 }
 
-function createTask($task_name, $list_id)
+// $id is project's id
+function validate($id)
 {
-  $db = getData();
-  $req = $db->prepare('INSERT INTO task (name, list_id) VALUES (:name, :list_id)');
-  $req->execute([
-    ':name' => $task_name,
-    ':list_id' => $list_id
-  ]);
+  if (empty($id) || !ctype_digit($id) || !existId($id))
+    return true;
+  return false;
 }
