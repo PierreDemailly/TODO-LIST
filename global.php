@@ -98,4 +98,11 @@ function checkUrl()
     // }
 }
 
+function validate($id)
+{
+  if (empty($id) || !ctype_digit($id) || !existId($id))
+    return false;
+  return true;
+}
+
 const BASE_URL = "/TODOLIST/";
