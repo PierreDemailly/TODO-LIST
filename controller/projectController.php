@@ -1,7 +1,7 @@
 <?php
 require 'model/projectModel.php';
 
-if(empty($_GET['id']) OR !ctype_digit($_GET['id']) OR !existId($_GET['id'])) {
+if(!validate($_GET['id'])) {
   header('Location: '.BASE_URL.'home/');
 }
 
