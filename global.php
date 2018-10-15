@@ -22,7 +22,8 @@ function routing($url) {
         'login',
         'register',
         'home',
-        'project'
+        'project',
+        'list'
     ];
     if(in_array($url, $routes))
         return 'controller/'.$url.'Controller.php';

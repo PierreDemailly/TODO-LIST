@@ -9,3 +9,6 @@ $('#form-cancel').on('click', function() {
 $('.box').on('click', function() {
    window.location.href = BASE_URL + "project/" + $(this).attr('data-id');
 });
+$('.list-box').on('click', function () {
+  window.location.href = BASE_URL + "list/" + $(this).attr('data-id');
+});
