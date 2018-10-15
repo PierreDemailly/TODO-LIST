@@ -57,7 +57,7 @@ function checkUrl()
 {
     $urls = preg_split("~[/]~", $_GET['url']);
     $urls = array_filter(preg_split("~[/]~", $_GET['url']), function($value) { return $value !== ''; });
-    var_dump($urls);
+
     if(count($urls) > 1) { // URL is page/* instead page
         // die('dezzde');
         // header("Location: ".BASE_URL."{$url[-1]}");
@@ -68,8 +68,6 @@ function checkUrl()
             }
         }
         if(isset($url_cutting)) {
-            // die('dezzde');
-            var_dump(count($url_cutting));
             switch (count($url_cutting)) {
                 case 1:
                     $location = $url_cutting[0];
