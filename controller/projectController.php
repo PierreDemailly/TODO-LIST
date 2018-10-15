@@ -1,9 +1,8 @@
 <?php
 require 'model/projectModel.php';
 
-if(!validate($_GET['id'])) {
+if(!validate($_GET['id']))
   header('Location: '.BASE_URL.'home/');
-}
 
 if(isset($_POST['add-list'])) {
   $name = htmlspecialchars($_POST['list-name']);
