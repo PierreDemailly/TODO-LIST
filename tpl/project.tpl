@@ -16,30 +16,21 @@
 <button class="button-primary" id="form-add">Ajouter une liste</button>
   <?php if (count($lists) > 0) {
         foreach ($lists as $list) {
-        $tasks = explode(',', $list->task_name);
+        $tasks_name = explode(',', $list->task_name);
             ?>
     <div>
-    <div class="four columns list-box">
+    <div class="four columns list-box clickable" data-id="<?= $list->id ?>">
     <p class="title"><?= $list->name ?></p>
 
     <?php
-    if(!empty($tasks)) { ?>
+    if(!empty($tasks_name)) { ?>
     <ul>
-    <?php foreach($tasks as $task) { ?>
-    <li><?= $task ?><i class="icon validate"></i><i class="icon edit"></i><i class="icon trash"></i></li>
+    <?php foreach($tasks_name as $task_name) { ?>
+    <li><?= $task_name ?></li>
         <?php } ?>
     </ul>
     <?php } ?>
-    <form method="post">
-    <div class="row">
-        <label for="list-name">Ajouter une tâche</label>
-        <input class="u-full-width" type="text" id="list-name" name="task-name" placeholder="Ma tâche" />
-        <input type="hidden" name="list_id" value="<?= $list->id ?>">
-        <input class="u-full-width" type="date" value="<?= date("Y-m-d", strtotime('tomorrow')) ?>" id="project-deadline" name="project-deadline-date" />
-        <input class="u-full-width" type="time" value="12:00" name="project-deadline-time" />
-    </div>
-    <button class="button-primary" type="submit" name="add-task">Confirmer</button>
-</form>
+
 </div>
     </div>
     <?php
