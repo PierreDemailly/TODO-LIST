@@ -35,3 +35,11 @@ function createList($list_name, $project_id)
     ':project_id' => $project_id
   ]);
 }
+
+// $id is project's id
+function validate($id)
+{
+  if (empty($id) || !ctype_digit($id) || !existId($id))
+    return false;
+  return true;
+}
