@@ -1,6 +1,9 @@
 <?php
 require 'model/registerModel.php';
 
+if(isset($_SESSION['id']))
+    header('Location: '.BASE_URL.'home/');
+
 if(isset($_POST['submit'])) {
     $pseudo      = htmlspecialchars($_POST['pseudo']);
     $email       = htmlspecialchars($_POST['email']);
