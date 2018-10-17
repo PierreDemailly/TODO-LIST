@@ -1,6 +1,9 @@
 <?php
 require 'model/loginModel.php';
 
+if(isset($_SESSION['id']))
+    header('Location: '.BASE_URL.'home/');
+
 if(isset($_POST['submit'])) {
     $email = htmlspecialchars($_POST['email']);
     $password = $_POST['password'];
