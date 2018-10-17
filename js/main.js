@@ -6,9 +6,9 @@ $('#form-cancel').on('click', function() {
    $('#add-form').slideToggle();
    $('#form-add').slideToggle();
 });
-$('.box').on('click', function() {
+$('#project-box').on('click', function() {
    window.location.href = BASE_URL + "project/" + $(this).attr('data-id');
 });
-$('.list-box').on('click', function () {
+$('#list-box').on('click', function () {
   window.location.href = BASE_URL + "list/" + $(this).attr('data-id');
 });
