@@ -99,3 +99,11 @@
 .trash {
     background:url('../img/trash.png');
 }
+.btn-delete {
+    background:#c23616;
+    color:#fff;
+    border:0;
+}
+.btn-delete:hover {
+    color:#fff;
+}
