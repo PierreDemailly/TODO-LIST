@@ -19,8 +19,8 @@
         $tasks_name = explode(',', $list->task_name);
             ?>
     <div>
-    <div class="four columns list-box clickable" data-id="<?= $list->id ?>">
-    <p class="title"><?= $list->name ?></p>
+    <div class="four columns list-box">
+    <p class="title clickable" data-id="<?= $list->id ?>" id="list-box"><?= $list->name ?></p>
 
     <?php
     if(!empty($tasks_name)) { ?>
@@ -30,7 +30,10 @@
         <?php } ?>
     </ul>
     <?php } ?>
-
+    <form method="post">
+        <input type="hidden" name="list-id" value="<?= $list->id ?>">
+        <button type="submit" name="delete-list" class="bouton btn-delete mb0">Supprimer la liste</button>
+    </form>dsqdsq
 </div>
     </div>
     <?php

@@ -19,6 +19,9 @@ if (isset($_POST['add-list'])) {
     }
 }
 
+if( isset($_POST['delete-list']))
+    deleteList($_POST['list-id']);
+
 $project = getProject($_GET['id']);
 $lists = getLists($_GET['id']);
 
