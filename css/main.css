@@ -114,5 +114,19 @@
 }
 .deadline > span {
     font-weight: bold;
-    color: #020cba;
+    color: #e9ade1;
+}
+.inline-form {
+    display:inline;
+    margin:0;
+}
+.nobtn {
+    margin:0;
+    padding:0;
+    border:0;
+    float:right;
+    height:20px;
+}
+.done {
+    background: #85ee77 !important;
 }

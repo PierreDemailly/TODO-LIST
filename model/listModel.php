@@ -42,3 +42,11 @@ function validate($id)
     return false;
   return true;
 }
+
+function taskDone($task_id) {
+  $db = getData();
+  $req = $db->prepare('UPDATE task SET done = 1 WHERE id = :id');
+  $req->execute([
+    'id' => $task_id
+  ]);
+}

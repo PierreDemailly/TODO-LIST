@@ -25,6 +25,10 @@ if (isset($_POST['add-task'])) {
     }
 }
 
+if(isset($_POST['task-done'])) {
+    taskDone($_POST['task-id']);
+}
+
 $list = getList($_GET['id']);
 $tasks = getTasks($_GET['id']);
 

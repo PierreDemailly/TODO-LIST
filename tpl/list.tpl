@@ -17,8 +17,15 @@
     <?php if(count($tasks > 0)) { ?>
       <ul>
     <?php foreach($tasks as $task) { ?>
-      <li><?= $task->name ?> <i class="icon validate"></i><i class="icon edit"></i><i class="icon trash"></i>
-      <p class="deadline">Deadline: <span><?= $task->deadline ?></span></p>
+
+      <li <?php if($task->done == 1){ ?>class="done"<?php } ?>><?= $task->name ?>
+       <form method="post" class="inline-form">
+         <input type="hidden" name="task-id" value="<?= $task->id?>">
+         <button type="submit" name="task-done" class="nobtn"><i class="icon validate"></i></button>
+        </form>
+        <i class="icon edit"></i>
+        <i class="icon trash"></i>
+    <p >Deadline: <span><?= $task->deadline ?></span></p>
     </li>
     <?php } ?>
     </ul>
