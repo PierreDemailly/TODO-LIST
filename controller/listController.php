@@ -29,6 +29,10 @@ if(isset($_POST['task-done'])) {
     taskDone($_POST['task-id']);
 }
 
+if(isset($_POST['task-clear'])) {
+    taskClear($_POST['task-id']);
+}
+
 $list = getList($_GET['id']);
 $tasks = getTasks($_GET['id']);
 

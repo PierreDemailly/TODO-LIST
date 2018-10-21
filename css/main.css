@@ -99,6 +99,11 @@
 .trash {
     background:url('../img/trash.png');
 }
+.clear {
+    background:url('../img/clear.png');
+    background-size: cover;
+    background-position: center center;
+}
 .btn-delete {
     background:#c23616;
     color:#fff;

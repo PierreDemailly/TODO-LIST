@@ -19,9 +19,14 @@
     <?php foreach($tasks as $task) { ?>
 
       <li <?php if($task->done == 1){ ?>class="done"<?php } ?>><?= $task->name ?>
+
        <form method="post" class="inline-form">
          <input type="hidden" name="task-id" value="<?= $task->id?>">
-         <button type="submit" name="task-done" class="nobtn"><i class="icon validate"></i></button>
+         <?php if($task->done == 1) { ?>
+          <button type="submit" name="task-clear" class="nobtn"><i class="icon clear"></i></button>
+          <?php } else { ?>
+            <button type="submit" name="task-done" class="nobtn"><i class="icon validate"></i></button>
+         <?php } ?>
         </form>
         <i class="icon edit"></i>
         <i class="icon trash"></i>
