@@ -28,7 +28,7 @@
             <button type="submit" name="task-done" class="nobtn"><i class="icon validate"></i></button>
          <?php } ?>
         </form>
-        <i class="icon edit"></i>
+        <a href="<?= BASE_URL ?>editTask/<?= $task->id ?>"><i class="icon edit"></i></a>
         <a href="<?= BASE_URL ?>deleteTask/<?= $task->id ?>"><i class="icon trash"></i></a>
     <p >Deadline: <span><?= $task->deadline ?></span></p>
     </li>
