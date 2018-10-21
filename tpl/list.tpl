@@ -29,7 +29,7 @@
          <?php } ?>
         </form>
         <i class="icon edit"></i>
-        <i class="icon trash"></i>
+        <a href="<?= BASE_URL ?>deleteTask/<?= $task->id ?>"><i class="icon trash"></i></a>
     <p >Deadline: <span><?= $task->deadline ?></span></p>
     </li>
     <?php } ?>
