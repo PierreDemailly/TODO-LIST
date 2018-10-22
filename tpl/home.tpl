@@ -31,9 +31,9 @@
     <div class="title"><?= $project->name ?></div>
     <div class="row task center big m-top"><?= $project->list_count ?></div>
     <?php if($project->list_count > 1) { ?>
-    <div class="row task center imp">tâches</div>
+    <div class="row task center imp">listes</div>
     <?php } else { ?>
-    <div class="row task center imp">tâche</div>
+    <div class="row task center imp">liste</div>
     <?php } ?>
     </div>
 <?php endforeach; ?>
