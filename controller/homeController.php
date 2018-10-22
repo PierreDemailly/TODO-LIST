@@ -25,7 +25,7 @@ if(isset($_POST['add-project'])) {
         $error[] = "Vous devez choisir une heure.";
 
     if(!isset($error)) {
-        createProject($pj_name, $pj_desc, "$pj_deadline[date] $pj_deadline[time]");
+        createProject($pj_name, $pj_desc, "$pj_deadline[date] $pj_deadline[time]", $_SESSION['id']);
     }
 }
 
