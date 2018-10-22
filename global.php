@@ -26,6 +26,7 @@ function routing($url) {
         'list',
         'deleteTask',
         'editTask',
+        'me',
     ];
     if(in_array($url, $routes))
         return 'controller/'.$url.'Controller.php';
