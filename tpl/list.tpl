@@ -1,6 +1,6 @@
 <div class="container">
   <h2><?= $list->name ?></h2>
-  <div class="six columns list-box">
+  <div class="twelve columns">
   <form method="post">
   <?php if(isset($errors)) {
     foreach($errors as $err) { ?>
@@ -14,11 +14,13 @@
       <input class="u-full-width" type="time" value="12:00" name="task-deadline-time" />
       <button class="button-primary" type="submit" name="add-task">Confirmer</button>
     </form>
-    <?php if(count($tasks > 0)) { ?>
+</div>
+<div class="five columns list-box">
+<?php if(count($tasks > 0)) { ?>
       <ul>
     <?php foreach($tasks as $task) { ?>
-
-      <li <?php if($task->done == 1){ ?>class="done"<?php } ?> id="<?= $task->id ?>"><?= $task->name ?>
+      <?php if($task->done == 1){ ?>
+      <li class="done" id="<?= $task->id ?>"><?= $task->name ?>
 
        <form method="post" action="#<?= $task->id ?>" class="inline-form">
          <input type="hidden" name="task-id" value="<?= $task->id?>">
@@ -30,10 +32,34 @@
         </form>
         <a href="<?= BASE_URL ?>editTask/<?= $task->id ?>"><i class="icon edit"></i></a>
         <a href="<?= BASE_URL ?>deleteTask/<?= $task->id ?>"><i class="icon trash"></i></a>
-    <p >Deadline: <span><?= $task->deadline ?></span></p>
+    <p>Deadline: <span><?= $task->deadline ?></span></p>
     </li>
-    <?php } ?>
+    <?php } } ?>
     </ul>
     <?php } ?>
-  </div>
+</div>
+<div class="five columns list-box">
+<?php if(count($tasks > 0)) { ?>
+      <ul>
+    <?php foreach($tasks as $task) { ?>
+      <?php if($task->done == 0){ ?>
+      <li id="<?= $task->id ?>"><?= $task->name ?>
+
+       <form method="post" action="#<?= $task->id ?>" class="inline-form">
+         <input type="hidden" name="task-id" value="<?= $task->id?>">
+         <?php if($task->done == 1) { ?>
+          <button type="submit" name="task-clear" class="nobtn"><i class="icon clear"></i></button>
+          <?php } else { ?>
+            <button type="submit" name="task-done" class="nobtn"><i class="icon validate"></i></button>
+         <?php } ?>
+        </form>
+        <a href="<?= BASE_URL ?>editTask/<?= $task->id ?>"><i class="icon edit"></i></a>
+        <a href="<?= BASE_URL ?>deleteTask/<?= $task->id ?>"><i class="icon trash"></i></a>
+    <p>Deadline: <span><?= $task->deadline ?></span></p>
+    </li>
+    <?php } } ?>
+    </ul>
+    <?php } ?>
+</div>
+
 </div>
