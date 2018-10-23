@@ -10,7 +10,7 @@ function getList($list_id)
 function getTasks($list_id)
 {
     $db = getData();
-    $req = $db->query("SELECT id, name, DATE_FORMAT(deadline, '%m/%d/%Y %H:%i') as deadline, done FROM task WHERE list_id = '$list_id'");
+    $req = $db->query("SELECT id, name, DATE_FORMAT(deadline, '%m/%d/%Y %H:%i') as deadline, done FROM task WHERE list_id = '$list_id' ORDER BY task.deadline");
     return $rep = $req->fetchAll();
 }
 
