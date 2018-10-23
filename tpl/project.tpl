@@ -14,19 +14,22 @@
 
   <h3>Listes:</h3>
 <button class="button-primary" id="form-add">Ajouter une liste</button>
-  <?php if (count($lists) > 0) {
+  <?php if (count($lists) > 0) { // TODO MOVE IT IN THE CONTROLLER !
         foreach ($lists as $list) {
         $tasks_name = explode(',', $list->task_name);
+        $tasks_done = explode(',', $list->task_done);
+        $width = (count(array_keys($tasks_done, 1)) / count($tasks_name)) * 100;
             ?>
     <div>
     <div class="four columns list-box">
+        <progress value="<?= $width ?>" max="100"></progress>
     <p class="title clickable" data-id="<?= $list->id ?>" id="list-box"><?= $list->name ?></p>
 
     <?php
     if(!empty($tasks_name[0])) { ?>
     <ul>
-    <?php foreach($tasks_name as $task_name) { ?>
-    <li><?= $task_name ?></li>
+    <?php foreach($tasks_name as $key => $task_name) { ?>
+    <li  <?php if($tasks_done[$key] == 1){ ?>class="done"<?php } ?>><?= $task_name ?></li>
         <?php } ?>
     </ul>
     <?php } ?>
