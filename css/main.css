@@ -135,3 +135,24 @@
 .done {
     background: #85ee77 !important;
 }
+
+.navbar {
+    background:red;
+    height:50px;
+    display:flex;
+    list-style:none;
+}
+.navbar > li {
+    background:blue;
+    height:50px;
+}
+.navbar > li ul {
+}
+.navbar > li ul li {
+    background:green !important;
+    height:50px;
+    display:none;
+}
+.navbar > li:hover ul li {
+    display:block;
+}

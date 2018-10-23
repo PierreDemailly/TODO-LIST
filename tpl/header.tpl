@@ -21,3 +21,14 @@
   <!--[if lte IE 9]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
+<?php if($_HAS_NAVBAR) { ?>
+<ul class="navbar">
+  <li><a href="">Accueil</a></li>
+  <li>
+    Mes projets
+    <ul>
+      <li>projet 1</li>
+    </ul>
+  </li>
+</ul>
+<?php } ?>

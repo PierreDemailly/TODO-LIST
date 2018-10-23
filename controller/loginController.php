@@ -1,6 +1,8 @@
 <?php
 require 'model/loginModel.php';
 
+$_HAS_NAVBAR = false;
+
 if(isset($_SESSION['id']))
     header('Location: '.BASE_URL.'home/');
 
