@@ -23,7 +23,7 @@
     <p class="title clickable" data-id="<?= $list->id ?>" id="list-box"><?= $list->name ?></p>
 
     <?php
-    if(!empty($tasks_name)) { ?>
+    if(!empty($tasks_name[0])) { ?>
     <ul>
     <?php foreach($tasks_name as $task_name) { ?>
     <li><?= $task_name ?></li>
@@ -33,7 +33,7 @@
     <form method="post">
         <input type="hidden" name="list-id" value="<?= $list->id ?>">
         <button type="submit" name="delete-list" class="bouton btn-delete mb0">Supprimer la liste</button>
-    </form>dsqdsq
+    </form>
 </div>
     </div>
     <?php
