@@ -28,6 +28,7 @@ if(isset($_POST['submit'])) {
     }
 }
 
+$title = "Connexion";
 
 require 'tpl/header.tpl';
 require 'tpl/login.tpl';

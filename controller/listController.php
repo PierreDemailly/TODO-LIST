@@ -36,6 +36,8 @@ if(isset($_POST['task-clear'])) {
 $list = getList($_GET['id']);
 $tasks = getTasks($_GET['id']);
 
+$title = $list->name.' - gestion de ma liste';
+
 require 'tpl/header.tpl';
 require 'tpl/list.tpl';
 require 'tpl/footer.tpl';

@@ -11,6 +11,8 @@ if(isset($_POST['task-delete'])) {
   header('Location: '.BASE_URL.'list/'.$task->list_id);
 }
 
+$title = 'Supprimer la tâche '. $task->name;
+
 require 'tpl/header.tpl';
 require 'tpl/deleteTask.tpl';
 require 'tpl/footer.tpl';

@@ -12,6 +12,8 @@ if(isset($_POST['user-edit'])) {
 
 $user = getUser();
 
+$title = $user->pseudo.' - mon profil';
+
 require 'tpl/header.tpl';
 require 'tpl/me.tpl';
 require 'tpl/footer.tpl';

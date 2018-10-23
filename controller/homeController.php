@@ -31,6 +31,8 @@ if(isset($_POST['add-project'])) {
 
 $projects = getProjects();
 
+$title = 'Mes projets';
+
 require 'tpl/header.tpl';
 require 'tpl/home.tpl';
 require 'tpl/footer.tpl';

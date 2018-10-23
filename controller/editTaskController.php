@@ -19,6 +19,8 @@ $task = getTask($_GET['id']);
 $deadline = explode(' ', $task->deadline);
 $lists = getLists($task->project_id);
 
+$title = 'Modifier la tâche '. $task->task_name;
+
 require 'tpl/header.tpl';
 require 'tpl/editTask.tpl';
 require 'tpl/footer.tpl';

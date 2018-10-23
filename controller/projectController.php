@@ -25,6 +25,8 @@ if( isset($_POST['delete-list']))
 $project = getProject($_GET['id']);
 $lists = getLists($_GET['id']);
 
+$title = $project->name;
+
 require 'tpl/header.tpl';
 require 'tpl/project.tpl';
 require 'tpl/footer.tpl';

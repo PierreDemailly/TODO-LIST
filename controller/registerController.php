@@ -35,6 +35,8 @@ if(isset($_POST['submit'])) {
     }
 }
 
+$title = "Inscription";
+
 require 'tpl/header.tpl';
 require 'tpl/register.tpl';
 require 'tpl/footer.tpl';
