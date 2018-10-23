@@ -36,14 +36,18 @@ function routing($url) {
 
 function getId($email) {
     $db = getData();
-    $req = $db->query("SELECT id FROM user WHERE email = '$email'");
+    $req = $db->prepare('SELECT id FROM user WHERE email = :email');
+    $req->bindValue(':email', $email, PDO::PARAM_STR);
+    $req->execute();
     $rep = $req->fetch();
     return $rep->id;
 }
 
 function countEmail($email) {
     $db = getData();
-    $req = $db->query("SELECT id FROM user WHERE email = '$email'");
+    $req = $db->prepare('SELECT id FROM user WHERE email = :email');
+    $req->bindValue(':email', $email, PDO::PARAM_STR);
+    $req->execute();
     return $rep = $req->rowCount();
 }
 

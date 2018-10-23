@@ -2,16 +2,17 @@
 
 function getUser() {
   $db = getData();
-  $req = $db->query("SELECT pseudo, email FROM user WHERE id = $_SESSION[id]");
+  $req = $db->prepare('SELECT pseudo, email FROM user WHERE id = :session_id');
+  $req->bindValue(':session_id', $_SESSION['id'], PDO::PARAM_INT);
+  $req->execute();
   return $rep = $req->fetch();
 }
 
 function editUser($email, $pseudo) {
   $db = getData();
   $req = $db->prepare('UPDATE user SET email = :email, pseudo = :pseudo WHERE id = :id');
-  $req->execute([
-    'email' => $email,
-    'pseudo' => $pseudo,
-    'id' => $_SESSION['id']
-  ]);
+  $req->bindValue(':email', $email, PDO::PARAM_STR);
+  $req->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+  $req->bindValue(':id', $_SESSION['id'], PDO::PARAM_STR);
+  $req->execute();
 }
