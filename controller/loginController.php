@@ -7,7 +7,7 @@ if(isset($_SESSION['id']))
     header('Location: '.BASE_URL.'home/');
 
 if(isset($_POST['submit'])) {
-    $email = $_POST['email'];
+    $email = strtolower($_POST['email']);
     $password = $_POST['password'];
     $errors = [];
 

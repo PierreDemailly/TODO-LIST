@@ -3,7 +3,7 @@ require 'model/meModel.php';
 
 if(isset($_POST['user-edit'])) {
   $pseudo = $_POST['user-pseudo'];
-  $email = $_POST['user-email'];
+  $email = strtolower($_POST['user-email']);
   $pseudo_count = countPseudo($pseudo);
   $email_count = countEmail($email);
   $errors = [];
