@@ -15,6 +15,15 @@
             <input class="u-full-width" type="date" id="project-deadline" name="project-deadline-date" />
             <input class="u-full-width" type="time" name="project-deadline-time" />
         </div>
+        <div class="four columns">
+            <label for="project-category">Catégory du projet</label>
+            <select name="project-category" id="project-category">
+                <option value="html">HTML CSS</option>
+                <option value="js">Javascript</option>
+                <option value="php">PHP</option>
+                <option value="others">Autres</option>
+            </select>
+        </div>
     </div>
     <button class="button-primary" type="submit" name="add-project">Confirmer</button>
     <button class="button" type="button" id="form-cancel">Annuler</button>
