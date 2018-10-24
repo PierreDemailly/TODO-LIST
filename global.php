@@ -106,4 +106,29 @@ function checkUrl()
 }
 /* Use $_HAS_NAVBAR = false in the pages you don't need the navbar (login, register for example) */
 $_HAS_NAVBAR = true;
+
 const BASE_URL = "/TODOLIST/";
+
+function getProjectsForNavbar() {
+    $db = getData();
+    $req = $db->prepare('SELECT id, name FROM project WHERE user_id = :id');
+    $req->bindValue(':id', $_SESSION['id'], PDO::PARAM_INT);
+    $req->execute();
+    return $rep = $req->fetchAll();
+}
+function getNavbarProjectLists($id) {
+    $db = getData();
+    $req = $db->prepare('SELECT id, name FROM list WHERE project_id = :id');
+    $req->bindValue(':id', $id, PDO::PARAM_INT);
+    $req->execute();
+    return $rep = $req->fetchAll();
+}
+function getUsername($id) {
+    $db = getData();
+    $req = $db->prepare('SELECT pseudo FROM user WHERE id = :id');
+    $req->bindValue(':id', $_SESSION['id'], PDO::PARAM_INT);
+    $req->execute();
+    return $rep = $req->fetch()->pseudo;
+}
+if(isset($_SESSION['id']))
+$navbar_projects = getProjectsForNavbar();

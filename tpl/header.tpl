@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="<?= BASE_URL ?>css/normalize.css">
   <link rel="stylesheet" href="<?= BASE_URL ?>css/skeleton.css">
   <link rel="stylesheet" href="<?= BASE_URL ?>css/main.css">
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 </head>
 
 <body>
@@ -22,13 +24,47 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
 <?php if($_HAS_NAVBAR) { ?>
-<ul class="navbar">
+  <ul class="navbar">
   <li><a href="">Accueil</a></li>
   <li>
-    Mes projets
-    <ul>
-      <li>projet 1</li>
-    </ul>
+    <?php if(!empty($navbar_projects)) { ?>
+      <a href="<?= BASE_URL ?>home/">Mes projets</a>
+      <ul>
+        <?php foreach($navbar_projects as $navbar_project) { ?>
+          <li><a href="<?= BASE_URL ?>project/<?= $navbar_project->id ?>"><?= $navbar_project->name ?></a>
+          <?php
+          $np_tasks = getNavbarProjectLists($navbar_project->id);
+          if(!empty($np_tasks)) { ?>
+          <ul> <?php
+            foreach($np_tasks as $np_task) {
+            ?>
+            <li><a href="<?= BASE_URL ?>list/<?= $np_task->id ?>"><?= $np_task->name ?></a></li>
+          <?php } ?>
+          </ul>
+            <?php } ?>
+        </li>
+        <?php } ?>
+      </ul>
+    <?php } else { ?>
+      <a href="<?= BASE_URL ?>home/">Mes projets</a>
+    <?php } ?>
+  </li>
+  <li>
+    <a href="<?= BASE_URL ?>me"><?= getUsername($_SESSION['id']) ?></a>
   </li>
 </ul>
+<!-- <ul>
+<li>HELLO
+  </li>
+  <li>HELLO
+    <ul>
+      <li>TEST</li>
+      <li>fdsfds
+        <ul>
+          <li>1</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul> -->
 <?php } ?>
