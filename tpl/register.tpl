@@ -9,15 +9,15 @@
             } ?>
             <div class="row">
             <label for="pseudo">Pseudo</label>
-            <input type="text" name="pseudo" id="pseudo" placeholder="Votre pseudo" />
+            <input type="text" name="user-pseudo" id="pseudo" placeholder="Votre pseudo" />
             <label for="email">Email</label>
-            <input type="text" name="email" id="email" placeholder="Votre adresse email" />
-            <input type="email" name="email-v" placeholder="Vérification adresse email" />
+            <input type="text" name="user-email" id="email" placeholder="Votre adresse email" />
+            <input type="email" name="user-email-v" placeholder="Vérification adresse email" />
             </div>
             <div class="row">
             <label for="password">Mot de passe</label>
-            <input type="password" name="password" id="password" placeholder="Votre mot de passe" />
-            <input type="password" name="password-v" placeholder="Vérification mot de passe" />
+            <input type="password" name="user-password" id="password" placeholder="Votre mot de passe" />
+            <input type="password" name="user-password-v" placeholder="Vérification mot de passe" />
             </div>
             <button class="button-primary" type="submit" name="submit">Confirmer</button>
         </form>
