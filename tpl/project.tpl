@@ -3,6 +3,11 @@
   <p><?= $project->description ?></p>
   <form method="post" id="add-form">
     <div class="row">
+    <?php if(isset($errors)) {
+                foreach($errors as $error) { ?>
+            <p class="error"><?= $error ?></p>
+            <?php }
+            } ?>
         <div class="four columns">
             <label for="list-name">Nom de la liste</label>
             <input class="u-full-width" type="text" id="list-name" name="list-name" placeholder="My list" />

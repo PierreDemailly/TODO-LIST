@@ -1,5 +1,10 @@
 <h1>Mon profil</h1>
 <form method="post">
+<?php if(isset($errors)) {
+                foreach($errors as $error) { ?>
+            <p class="error"><?= $error ?></p>
+            <?php }
+            } ?>
   <label>Pseudo:</label>
   <input type="text" name="user-pseudo" value="<?= $user->pseudo ?>">
   <label>Email:</label>

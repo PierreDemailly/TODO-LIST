@@ -1,5 +1,10 @@
 <h1>Modifier une tâche</h1>
 <form method="post">
+<?php if(isset($errors)) {
+                foreach($errors as $error) { ?>
+            <p class="error"><?= $error ?></p>
+            <?php }
+            } ?>
   <input type="hidden" name="task-id" value="<?= $task->id ?>">
   <label>Nom:</label>
   <input type="text" name="task-name" value="<?= $task->task_name ?>">
