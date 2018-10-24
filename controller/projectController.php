@@ -6,15 +6,16 @@ if (!validate($_GET['id'])) {
 }
 
 if (isset($_POST['add-list'])) {
-    $name = htmlspecialchars($_POST['list-name']);
+    $name = $_POST['list-name'];
+    $errors = [];
 
-    $error[] = (empty($name)) ? "Vous devez nommer votre liste." : null;
-    $error[] = (strlen($name) < 3) ? "Le nom de votre liste doit faire au moins 3 caractères" : null;
-    $error[] = (strlen($name) > 100) ? "Le nom de votre liste doit faire maximum 100 caractères" : null;
+    $errors[] = (empty($name)) ? "Vous devez nommer votre liste." : NULL;
+    $errors[] = (strlen($name) < 3) ? "Le nom de votre liste doit faire au moins 3 caractères" : NULL;
+    $errors[] = (strlen($name) > 100) ? "Le nom de votre liste doit faire maximum 100 caractères" : NULL;
 
-    $errors = getErrors($error);
+    $errors = getErrors($errors);
 
-    if (!isset($errors)) {
+    if (empty($errors)) {
         createList($name, $_GET['id']);
     }
 }

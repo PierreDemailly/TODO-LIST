@@ -7,23 +7,23 @@ if(isset($_SESSION['id']))
     header('Location: '.BASE_URL.'home/');
 
 if(isset($_POST['submit'])) {
-    $email = htmlspecialchars($_POST['email']);
+    $email = $_POST['email'];
     $password = $_POST['password'];
+    $errors = [];
 
-    $error[] = (empty($email)) ? "Merci de donner votre adresse email." : NULL;
-    $error[] = (empty($password)) ? "Merci de donner votre mot de passe." : NULL;
-    $error[] = (!filter_var($email, FILTER_VALIDATE_EMAIL)) ? "Adresse email non valide." : NULL;
-    $error[] = (countEmail($email) < 1) ? "Cette adresse email n'est pas enregistrée." : NULL;
+    $errors[] = (empty($email)
+                OR empty($password)) ? "Merci de remplir tous les champs" : NULL;
+
+    $errors[] = (countEmail($email) < 1) ? "Cette adresse email n'est pas enregistrée." : NULL;
 
     $errors = getErrors($error);
 
-    if(!isset($errors)) {
-        $checkLogin = checkPass($email, $password);
-        if($checkLogin) {
+    if(empty($errors)) {
+        if(checkPass($email, $password)) {
             $_SESSION['id'] = getId($email);
             header('Location: '.BASE_URL.'home/');
         } else {
-            $error[] = "Mot de passe incorrect.";
+            $errors[] = "Mot de passe incorrect.";
         }
     }
 }

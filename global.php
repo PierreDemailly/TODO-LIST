@@ -51,13 +51,12 @@ function countEmail($email) {
     return $rep = $req->rowCount();
 }
 
-function getErrors($error) {
-    foreach($error as $err) {
+function getErrors($errors) {
+    foreach($errors as $err) {
         if($err !== NULL)
-            $errors[] = $err;
+            $errs[] = $err;
     }
-    if(isset($errors))
-        return $errors;
+    return (isset($errs)) ? $errs : NULL;
 }
 
 function checkUrl()

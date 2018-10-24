@@ -2,30 +2,27 @@
 require 'model/homeModel.php';
 
 if(isset($_POST['add-project'])) {
-    $pj_name = htmlspecialchars($_POST['project-name']);
-    $pj_desc = htmlspecialchars($_POST['project-desc']);
-    $pj_deadline = [
-        'date' => htmlspecialchars($_POST['project-deadline-date']),
-        'time' => htmlspecialchars($_POST['project-deadline-time'])
+    $name = $_POST['project-name'];
+    $desc = $_POST['project-desc'];
+    $deadline = [
+        'date' => $_POST['project-deadline-date'],
+        'time' => $_POST['project-deadline-time']
     ];
+    $category = $_POST['project-category'];
+    $errors = [];
 
-    if(empty($pj_name))
-        $error[] = "Vous devez nommer votre projet.";
-    if(strlen($pj_name) > 100)
-        $error[] = "Le nom de votre projet ne doit pas dépasser 100 caractères.";
+    $errors = (empty($name)
+              OR empty($desc)
+              OR empty($deadline['date'])
+              OR empty($deadline['time'])) ? "Merci de remplir tous les champs" : NULL;
 
-    if(empty($pj_desc))
-        $pj_desc = "Aucune description.";
-    if(strlen($pj_desc) > 255)
-        $error[] = "La description de votre projet ne doit pas dépasser 255 caractères.";
+    $errors = (strlen($name) > 50) ? "Le nom de votre projet est trop long" : NULL;
+    $errors = (strlen($desc) > 255) ? "La description de votre projet est trop longue" : NULL;
 
-    if(empty($pj_deadline['date']))
-        $error[] = "Vous devez choisir une date.";
-    if(empty($pj_deadline['time']))
-        $error[] = "Vous devez choisir une heure.";
+    $errors = getErrors($errors);
 
-    if(!isset($error)) {
-        createProject($pj_name, $pj_desc, "$pj_deadline[date] $pj_deadline[time]", $_SESSION['id']);
+    if(empty($errors)) {
+        createProject($name, $desc, "$deadline[date] $deadline[time]", $_SESSION['id'], $category);
     }
 }
 

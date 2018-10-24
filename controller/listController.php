@@ -6,21 +6,22 @@ if (!validate($_GET['id'])) {
 }
 
 if (isset($_POST['add-task'])) {
-    $name = htmlspecialchars($_POST['task-name']);
+    $name = $_POST['task-name'];
     $deadline = [
-        'date' => htmlspecialchars($_POST['task-deadline-date']),
-        'time' => htmlspecialchars($_POST['task-deadline-time'])
+        'date' => $_POST['task-deadline-date'],
+        'time' => $_POST['task-deadline-time']
     ];
+    $errors = [];
 
-    $error[] = (empty($name)) ? "Vous devez nommer votre liste." : NULL;
-    $error[] = (strlen($name) < 3) ? "Le nom de votre liste doit faire au moins 3 caractères" : NULL;
-    $error[] = (strlen($name) > 100) ? "Le nom de votre liste doit faire maximum 100 caractères" : NULL;
-    $error[] = (empty($deadline['date'])) ? "Vous devez donner une date" : NULL;
-    $error[] = (empty($deadline['time'])) ? "Vous devez donner une heure" : NULL;
+    $errors[] = (empty($name)) ? "Vous devez nommer votre liste." : NULL;
+    $errors[] = (strlen($name) < 3) ? "Le nom de votre liste doit faire au moins 3 caractères" : NULL;
+    $errors[] = (strlen($name) > 100) ? "Le nom de votre liste doit faire maximum 100 caractères" : NULL;
+    $errors[] = (empty($deadline['date'])) ? "Vous devez donner une date" : NULL;
+    $errors[] = (empty($deadline['time'])) ? "Vous devez donner une heure" : NULL;
 
-    $errors = getErrors($error);
+    $errors = getErrors($errors);
 
-    if (!isset($errors)) {
+    if (empty($errors)) {
         createTask($name, $_POST['list_id'], "$deadline[date] $deadline[time]");
     }
 }
@@ -36,7 +37,7 @@ if(isset($_POST['task-clear'])) {
 $list = getList($_GET['id']);
 $tasks = getTasks($_GET['id']);
 
-$title = $list->name.' - gestion de ma liste';
+$title = $list->name . ' - gestion de ma liste';
 
 require 'tpl/header.tpl';
 require 'tpl/list.tpl';
