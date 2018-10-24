@@ -16,6 +16,7 @@ if (isset($_POST['add-task'])) {
     $errors[] = (empty($name)) ? "Vous devez nommer votre liste." : NULL;
     $errors[] = (strlen($name) < 3) ? "Le nom de votre liste doit faire au moins 3 caractères" : NULL;
     $errors[] = (strlen($name) > 100) ? "Le nom de votre liste doit faire maximum 100 caractères" : NULL;
+    
     $errors[] = (empty($deadline['date'])) ? "Vous devez donner une date" : NULL;
     $errors[] = (empty($deadline['time'])) ? "Vous devez donner une heure" : NULL;
 
