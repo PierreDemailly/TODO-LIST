@@ -16,3 +16,11 @@ function editUser($email, $pseudo) {
   $req->bindValue(':id', $_SESSION['id'], PDO::PARAM_STR);
   $req->execute();
 }
+
+function countPseudo($pseudo) {
+  $db = getData();
+  $req = $db->prepare('SELECT id FROM user WHERE pseudo = :pseudo');
+  $req->bindValue(':pseudo', $pseudo, PDO::PARAM_STR);
+  $req->execute();
+  return $rep = $req->rowCount();
+}
