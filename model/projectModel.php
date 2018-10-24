@@ -2,7 +2,6 @@
 function getProject($project_id)
 {
     $db = getData();
-    $req = $db->query("SELECT name, description, deadline FROM project WHERE id = '$project_id'");
     $req = $db->prepare('SELECT name, description, deadline FROM project WHERE id = :project_id');
     $req->bindValue(':project_id', $project_id, PDO::PARAM_INT);
     $req->execute();
@@ -56,4 +55,12 @@ function validate($id)
     }
 
     return true;
+}
+
+function deleteProject($id)
+{
+    $db = getData();
+    $req = $db->prepare('UPDATE project SET deleted = 1 WHERE id = :id');
+    $req->bindValue(':id', $id, PDO::PARAM_INT);
+    $req->execute();
 }

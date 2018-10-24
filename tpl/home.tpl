@@ -1,5 +1,6 @@
 <div class="container">
-    <h2>Liste des projets</h2>
+    <h2>Liste des projets en cours</h2>
+    <p><a href="<?= BASE_URL ?>binProject/">Voir les projets supprimés</a></p>
 <form method="post" id="add-form">
     <div class="row">
         <div class="four columns">

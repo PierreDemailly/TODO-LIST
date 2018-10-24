@@ -27,6 +27,7 @@ function routing($url) {
         'deleteTask',
         'editTask',
         'me',
+        'binProject'
     ];
     if(in_array($url, $routes))
         return 'controller/'.$url.'Controller.php';

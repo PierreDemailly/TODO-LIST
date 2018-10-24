@@ -16,7 +16,11 @@
     <button class="button-primary" type="submit" name="add-list">Confirmer</button>
     <button class="button" type="button" id="form-cancel">Annuler</button>
 </form>
-
+<form method="post">
+    <input type="hidden" name="project-id" value="<?= $_GET['id'] ?>">
+<button type="submit" name="delete-project" class="bouton btn-delete mb0">Supprimer le projet</button>
+<p>Si vous supprimez votre projet, il sera toujours disponible dans <a href="<?= BASE_URL ?>binProject/">la corbeille</a>.</p>
+        </form>
   <h3>Listes:</h3>
 <button class="button-primary" id="form-add">Ajouter une liste</button>
   <?php if (count($lists) > 0) { // TODO MOVE IT IN THE CONTROLLER !

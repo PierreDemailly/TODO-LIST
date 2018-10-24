@@ -5,6 +5,10 @@ if (!validate($_GET['id'])) {
     header('Location: ' . BASE_URL . 'home/');
 }
 
+if(isset($_POST['delete-project'])) {
+    deleteProject($_POST['project-id']);
+}
+
 if (isset($_POST['add-list'])) {
     $name = $_POST['list-name'];
     $errors = [];
