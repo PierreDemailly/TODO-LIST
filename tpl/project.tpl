@@ -1,6 +1,6 @@
 <div class="container">
-  <h2><?= $project->name ?></h2>
-  <p><?= $project->description ?></p>
+  <h2><?= htmlspecialchars($project->name) ?></h2>
+  <p><?= htmlspecialchars($project->description) ?></p>
   <form method="post" id="add-form">
     <div class="row">
     <?php if(isset($errors)) {
@@ -38,7 +38,7 @@
     if(!empty($tasks_name[0])) { ?>
     <ul>
     <?php foreach($tasks_name as $key => $task_name) { ?>
-    <li  <?php if($tasks_done[$key] == 1){ ?>class="done"<?php } ?>><?= $task_name ?></li>
+    <li  <?php if($tasks_done[$key] == 1){ ?>class="done"<?php } ?>><?= htmlspecialchars($task_name) ?></li>
         <?php } ?>
     </ul>
     <?php } ?>

@@ -31,14 +31,14 @@
       <a href="<?= BASE_URL ?>home/">Mes projets</a>
       <ul>
         <?php foreach($navbar_projects as $navbar_project) { ?>
-          <li><a href="<?= BASE_URL ?>project/<?= $navbar_project->id ?>"><?= $navbar_project->name ?></a>
+          <li><a href="<?= BASE_URL ?>project/<?= $navbar_project->id ?>"><?= htmlspecialchars($navbar_project->name) ?></a>
           <?php
           $np_tasks = getNavbarProjectLists($navbar_project->id);
           if(!empty($np_tasks)) { ?>
           <ul> <?php
             foreach($np_tasks as $np_task) {
             ?>
-            <li><a href="<?= BASE_URL ?>list/<?= $np_task->id ?>"><?= $np_task->name ?></a></li>
+            <li><a href="<?= BASE_URL ?>list/<?= $np_task->id ?>"><?= htmlspecialchars($np_task->name) ?></a></li>
           <?php } ?>
           </ul>
             <?php } ?>

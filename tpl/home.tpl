@@ -38,7 +38,7 @@
     <div class="row">
 <?php foreach($projects as $project): ?>
 <div class="three columns box clickable" data-id="<?= $project->id ?>" id="project-box">
-    <div class="title"><?= $project->name ?></div>
+    <div class="title"><?= htmlspecialchars($project->name) ?></div>
     <div class="row task center big m-top"><?= $project->list_count ?></div>
     <?php if($project->list_count > 1) { ?>
     <div class="row task center imp">listes</div>

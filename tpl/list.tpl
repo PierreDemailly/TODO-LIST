@@ -1,5 +1,5 @@
 <div class="container">
-  <h2><?= $list->name ?></h2>
+  <h2><?= htmlspecialchars($list->name) ?></h2>
   <div class="twelve columns">
   <form method="post">
   <?php if(isset($errors)) {
@@ -20,7 +20,7 @@
       <ul>
     <?php foreach($tasks as $task) { ?>
       <?php if($task->done == 1){ ?>
-      <li class="done" id="<?= $task->id ?>"><?= $task->name ?>
+      <li class="done" id="<?= $task->id ?>"><?= htmlspecialchars($task->name) ?>
 
        <form method="post" action="#<?= $task->id ?>" class="inline-form">
          <input type="hidden" name="task-id" value="<?= $task->id?>">
@@ -43,7 +43,7 @@
       <ul>
     <?php foreach($tasks as $task) { ?>
       <?php if($task->done == 0){ ?>
-      <li id="<?= $task->id ?>"><?= $task->name ?>
+      <li id="<?= $task->id ?>"><?= htmlspecialchars($task->name) ?>
 
        <form method="post" action="#<?= $task->id ?>" class="inline-form">
          <input type="hidden" name="task-id" value="<?= $task->id?>">
