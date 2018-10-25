@@ -13,12 +13,11 @@ if (isset($_POST['task-edit'])) {
   $list = $_POST['task-list'];
   $errors = [];
 
-  $errors[] = (empty($name)) ? "Vous devez nommer votre liste." : NULL;
-  $errors[] = (strlen($name) < 3) ? "Le nom de votre liste doit faire au moins 3 caractères" : NULL;
-  $errors[] = (strlen($name) > 100) ? "Le nom de votre liste doit faire maximum 100 caractères" : NULL;
+  $errors[] = (empty($name)) ? "Veuillez nommer votre tâche." : NULL;
+  $errors[] = (strlen($name) < 3) ? "Le nom de votre tâche est trop court." : NULL;
+  $errors[] = (strlen($name) > 100) ? "Le nom de votre liste est trop long." : NULL;
 
-  $errors[] = (empty($date)) ? "Vous devez donner une date" : NULL;
-  $errors[] = (empty($time)) ? "Vous devez donner une heure" : NULL;
+  $errors[] = (empty($date) OR empty($time)) ? "Veuillez donner une date & heure valide." : NULL;
 
   $errors = getErrors($errors);
 

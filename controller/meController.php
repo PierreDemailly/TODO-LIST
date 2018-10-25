@@ -9,14 +9,14 @@ if(isset($_POST['user-edit'])) {
   $errors = [];
 
   $errors[] = (empty($pseudo)
-              OR empty($email)) ? "Merci de remplir tous les champs" : NULL;
+              OR empty($email)) ? "Veuillez remplir tous les champs." : NULL;
 
-  $errors[] = (strlen($pseudo) < 4) ? "Votre pseudo doit faire au moins 3 caractères" : NULL;
-  $errors[] = (strlen($pseudo > 26)) ? "Votre pseudo ne doit pas dépasser 26 caractères" : NULL;
-  $errors[] = ($pseudo_count > 1) ? "Ce pseudo est déjà utilisé" : NULL;
+  $errors[] = (strlen($pseudo) < 4) ? "Votre pseudo est trop court." : NULL;
+  $errors[] = (strlen($pseudo > 26)) ? "Votre pseudo est trop long." : NULL;
+  $errors[] = ($pseudo_count > 1) ? "Ce pseudo est déjà utilisé." : NULL;
 
-  $errors[] = (!filter_var($email, FILTER_VALIDATE_EMAIL)) ? "Adresse email non valide." : NULL;
-  $errors[] = ($email_count > 1) ? "Cette adresse email est déjà utilisée" : NULL;
+  $errors[] = (!filter_var($email, FILTER_VALIDATE_EMAIL)) ? "Veuillez entrer une email valide." : NULL;
+  $errors[] = ($email_count > 1) ? "Cette email est déjà utilisée." : NULL;
 
   $errors = getErrors($errors);
 

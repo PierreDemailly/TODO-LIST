@@ -14,11 +14,11 @@ if(isset($_POST['add-project'])) {
     $errors = (empty($name)
               OR empty($desc)
               OR empty($deadline['date'])
-              OR empty($deadline['time'])) ? "Merci de remplir tous les champs" : NULL;
+              OR empty($deadline['time'])) ? "Veuillez remplir tous les champs." : NULL;
 
-    $errors = (strlen($name) > 50) ? "Le nom de votre projet est trop long" : NULL;
-    
-    $errors = (strlen($desc) > 255) ? "La description de votre projet est trop longue" : NULL;
+    $errors = (strlen($name) > 50) ? "Le nom de votre projet est trop long." : NULL;
+
+    $errors = (strlen($desc) > 255) ? "La description de votre projet est trop longue." : NULL;
 
     $errors = getErrors($errors);
 

@@ -12,9 +12,9 @@ if(isset($_POST['submit'])) {
     $errors = [];
 
     $errors[] = (empty($email)
-                OR empty($password)) ? "Merci de remplir tous les champs" : NULL;
+                OR empty($password)) ? "Veuillez remplir tous les champs." : NULL;
 
-    $errors[] = (countEmail($email) < 1) ? "Cette adresse email n'est pas enregistrée." : NULL;
+    $errors[] = (countEmail($email) < 1) ? "Cette email n'est associée à aucune compte." : NULL;
 
     $errors = getErrors($error);
 
