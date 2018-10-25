@@ -4,7 +4,7 @@ require 'model/loginModel.php';
 $_HAS_NAVBAR = false;
 
 if(isset($_SESSION['id']))
-    header('Location: '.BASE_URL.'home/');
+    header('Location: ' . BASE_URL . 'home/');
 
 if(isset($_POST['submit'])) {
     $email = strtolower($_POST['email']);
@@ -21,7 +21,7 @@ if(isset($_POST['submit'])) {
     if(empty($errors)) {
         if(checkPass($email, $password)) {
             $_SESSION['id'] = getId($email);
-            header('Location: '.BASE_URL.'home/');
+            header('Location: ' . BASE_URL . 'home/');
         } else {
             $errors[] = "Mot de passe incorrect.";
         }

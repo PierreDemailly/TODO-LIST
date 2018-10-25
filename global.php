@@ -8,7 +8,7 @@ function getData() {
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ
         ]);
     } catch (PDOException $err) {
-        die('Erreur MySQL: '. $err->getMessage());
+        die('Erreur MySQL: ' . $err->getMessage());
     }
     return $db;
 }
@@ -31,7 +31,7 @@ function routing($url) {
         'logout'
     ];
     if(in_array($url, $routes))
-        return 'controller/'.$url.'Controller.php';
+        return 'controller/' . $url . 'Controller.php';
     else
         return '404.html';
 }
@@ -94,14 +94,14 @@ function checkUrl()
                     break;
             }
             $_SESSION['url'] = time();
-            header('Location: '.BASE_URL.$location);
+            header('Location: ' . BASE_URL.$location);
         }
     }
     // elseif($count($urls) > 0) {
     //     if(!empty($url[0]))
     //         header("Location: ".BASE_URL."{$url[0]}");
     //     else {
-    //         header('Location: '.BASE_URL.'login');
+    //         header('Location: ' . BASE_URL . 'login');
     //     }
     // }
 }

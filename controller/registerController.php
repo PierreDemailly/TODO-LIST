@@ -2,7 +2,7 @@
 require 'model/registerModel.php';
 
 if(isset($_SESSION['id']))
-    header('Location: '.BASE_URL.'home/');
+    header('Location: ' . BASE_URL . 'home/');
 
 if(isset($_POST['submit'])) {
     $pseudo      = $_POST['user-pseudo'];
@@ -36,7 +36,7 @@ if(isset($_POST['submit'])) {
     if(empty($errors)) {
         createUser($pseudo, $email, $password);
         $_SESSION['id'] = getId($email);
-        header('Location: '.BASE_URL.'home/');
+        header('Location: ' . BASE_URL . 'home/');
     }
 }
 
