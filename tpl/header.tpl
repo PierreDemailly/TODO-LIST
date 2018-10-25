@@ -9,8 +9,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="manifest" href="<?= BASE_URL ?>site.webmanifest">
-  <link rel="apple-touch-icon" href="<?= BASE_URL ?>icon.png">
-  <!-- Place favicon.ico in the root directory -->
+  <link rel="apple-touch-icon" href="<?= BASE_URL ?>favicon.png">
+  <link rel="shortcut icon" type="image/png" href="<?= BASE_URL ?>favicon.png"/>
 
   <link rel="stylesheet" href="<?= BASE_URL ?>css/normalize.css">
   <link rel="stylesheet" href="<?= BASE_URL ?>css/skeleton.css">
