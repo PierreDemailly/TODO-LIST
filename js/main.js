@@ -12,3 +12,13 @@ $('#project-box').on('click', function() {
 $('#list-box').on('click', function () {
   window.location.href = BASE_URL + "list/" + $(this).attr('data-id');
 });
+
+
+if ($(window).width() < 768) {
+  $(".navbar a").on('click', function (e) {
+    e.preventDefault();
+    $(this).on('click', function (e) {
+      window.location = this.href;
+    });
+  });
+}
