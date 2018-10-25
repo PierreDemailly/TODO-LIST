@@ -51,20 +51,10 @@
   </li>
   <li>
     <a href="<?= BASE_URL ?>me"><?= getUsername($_SESSION['id']) ?></a>
-  </li>
-</ul>
-<!-- <ul>
-<li>HELLO
-  </li>
-  <li>HELLO
     <ul>
-      <li>TEST</li>
-      <li>fdsfds
-        <ul>
-          <li>1</li>
-        </ul>
-      </li>
+      <li> <a href="<?= BASE_URL ?>me">Mon profil</a></li>
+      <li> <a href="<?= BASE_URL ?>logout">Déconnexion</a></li>
     </ul>
   </li>
-</ul> -->
+</ul>
 <?php } ?>
