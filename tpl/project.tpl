@@ -25,8 +25,8 @@
 <button class="button-primary" id="form-add">Ajouter une liste</button>
   <?php if (count($lists) > 0) { // TODO MOVE IT IN THE CONTROLLER !
         foreach ($lists as $list) {
-        $tasks_name = explode(',', $list->task_name);
-        $tasks_done = explode(',', $list->task_done);
+        $tasks_name = explode('!dM_mc5d??d,c', $list->task_name);
+        $tasks_done = explode('!dM_mc5d??d,c', $list->task_done);
         $width = (count(array_keys($tasks_done, 1)) / count($tasks_name)) * 100;
             ?>
     <div>
