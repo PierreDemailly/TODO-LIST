@@ -50,7 +50,7 @@
     <?php } ?>
   </li>
   <li>
-    <a href="<?= BASE_URL ?>me"><?= getUsername($_SESSION['id']) ?></a>
+    <a href="<?= BASE_URL ?>me"><?= getUsername() ?></a>
     <ul>
       <li> <a href="<?= BASE_URL ?>me">Mon profil</a></li>
       <li> <a href="<?= BASE_URL ?>logout">Déconnexion</a></li>

@@ -1,7 +1,7 @@
 <?php
 require 'model/editTaskModel.php';
 
-if (!validate($_GET['id']))
+if (!validateGetId())
     header('Location: ' . BASE_URL . 'home/');
 
 if (isset($_POST['task-edit'])) {
@@ -24,7 +24,7 @@ if (isset($_POST['task-edit'])) {
     editTask($task_id, $task_name, "$task_date $task_time", $task_list);
 }
 
-$task = getTask($_GET['id']);
+$task = getTaskFromId();
 $deadline = explode(' ', $task->deadline);
 $lists = getLists($task->project_id);
 

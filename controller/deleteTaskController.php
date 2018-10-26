@@ -1,7 +1,7 @@
 <?php
 require 'model/deleteTaskModel.php';
 
-if(!validate($_GET['id']))
+if(!validateGetId())
   header('Location: ' . BASE_URL . 'home/');
 
 
@@ -10,7 +10,7 @@ if(!validate($_GET['id']))
     header('Location: ' . BASE_URL . 'list/' . $task->list_id);
   }
 
-$task = getTask($_GET['id']);
+$task = getTask();
 
 $title = 'Supprimer la tâche ' . $task->name;
 

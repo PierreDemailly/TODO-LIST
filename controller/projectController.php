@@ -1,7 +1,7 @@
 <?php
 require 'model/projectModel.php';
 
-if (!validate($_GET['id']))
+if (!validateGetId())
     header('Location: ' . BASE_URL . 'home/');
 
 if(isset($_POST['delete-project']))
@@ -18,14 +18,14 @@ if (isset($_POST['add-list'])) {
     $errors = getErrors($errors);
 
     if (empty($errors))
-        createList($name, $_GET['id']);
+        createList($name);
 }
 
 if( isset($_POST['delete-list']))
     deleteList($_POST['list-id']);
 
-$project = getProject($_GET['id']);
-$lists = getLists($_GET['id']);
+$project = getProjectById();
+$lists = getListsById();
 
 $title = $project->name;
 

@@ -117,7 +117,7 @@ function getNavbarProjectLists($id) {
   $req->execute();
   return $rep = $req->fetchAll();
 }
-function getUsername($id) {
+function getUsername() {
   $db = getData();
   $req = $db->prepare('SELECT pseudo FROM user WHERE id = :id');
   $req->bindValue(':id', $_SESSION['id'], PDO::PARAM_INT);

@@ -1,10 +1,10 @@
 <?php
 
-function existId($task_id)
+function existTaskId()
 {
   $db = getData();
   $req = $db->prepare('SELECT id FROM task WHERE id = :task_id');
-  $req->bindValue(':task_id', $task_id, PDO::PARAM_INT);
+  $req->bindValue(':task_id', $_GET['id'], PDO::PARAM_INT);
   $req->execute();
   $rep = $req->rowCount();
   if ($rep > 0)
@@ -13,18 +13,18 @@ function existId($task_id)
   return false;
 }
 
-function validate($id)
+function validateGetId()
 {
-  if (empty($id) || !ctype_digit($id) || !existId($id))
+  if (empty($_GET['id']) || !ctype_digit($_GET['id']) || !existTaskId())
     return false;
 
   return true;
 }
 
-function getTask($id) {
+function getTask() {
   $db = getData();
   $req = $db->prepare('SELECT id, name, list_id FROM task WHERE id = :id');
-  $req->bindValue(':id', $id, PDO::PARAM_INT);
+  $req->bindValue(':id', $_GET['id'], PDO::PARAM_INT);
   $req->execute();
   return $rep = $req->fetch();
 }

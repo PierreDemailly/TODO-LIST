@@ -1,7 +1,7 @@
 <?php
 require 'model/listModel.php';
 
-if (!validate($_GET['id']))
+if (!validateGetId())
     header('Location: ' . BASE_URL . 'home/');
 
 if (isset($_POST['add-task'])) {
@@ -30,8 +30,8 @@ if(isset($_POST['task-done']))
 if(isset($_POST['task-clear']))
     taskClear($_POST['task-id']);
 
-$list = getList($_GET['id']);
-$tasks = getTasks($_GET['id']);
+$list = getListById();
+$tasks = getTasksById();
 
 $title = $list->name . ' - gestion de ma liste';
 

@@ -1,18 +1,18 @@
 <?php
-function getList($list_id)
+function getListById()
 {
     $db = getData();
     $req = $db->prepare('SELECT id, name FROM list WHERE id = :list_id');
-    $req->bindValue(':list_id', $list_id, PDO::PARAM_INT);
+    $req->bindValue(':list_id', $_GET['id'], PDO::PARAM_INT);
     $req->execute();
     return $rep = $req->fetch();
 }
 
-function getTasks($list_id)
+function getTasksById()
 {
     $db = getData();
     $req = $db->prepare('SELECT id, name, DATE_FORMAT(deadline, "%m/%d/%Y %H:%i") as deadline, done FROM task WHERE list_id = :list_id ORDER BY task.deadline');
-    $req->bindValue(':list_id', $list_id, PDO::PARAM_INT);
+    $req->bindValue(':list_id', $_GET['id'], PDO::PARAM_INT);
     $req->execute();
     return $rep = $req->fetchAll();
 }
@@ -27,11 +27,11 @@ function createTask($task_name, $list_id, $deadline)
     $req->execute();
 }
 
-function existId($list_id)
+function existListId()
 {
     $db = getData();
     $req = $db->prepare('SELECT id FROM list WHERE id = :list_id');
-    $req->bindValue(':list_id', $list_id, PDO::PARAM_INT);
+    $req->bindValue(':list_id', $_GET['id'], PDO::PARAM_INT);
     $req->execute();
     $rep = $req->rowCount();
     if ($rep > 0)
@@ -41,11 +41,11 @@ function existId($list_id)
 
 }
 
-function validate($id)
+function validateGetId()
 {
-    if (empty($id) || !ctype_digit($id) || !existId($id))
+    if (empty($_GET['id']) || !ctype_digit($_GET['id']) || !existListId())
         return false;
- 
+
     return true;
 }
 
