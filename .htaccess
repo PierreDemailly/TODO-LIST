@@ -1,17 +1,5 @@
 RewriteEngine on
 
-#  path /page/id/action/id/
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_URI} !^.*\.(jpg|css|js|gif|png)$ [NC]
-RewriteCond %{REQUEST_URI} ^(.*)/(.*)/(.*)/(.*)$ [NC]
-RewriteRule ^(.*)/(.*)/(.*)/(.*)/{0,}$ index.php?url=$1&id=$2&action=$3&ida=$4 [QSA,L]
-
-#  path /page/id/action redirect @ /page/id
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_URI} !^.*\.(jpg|css|js|gif|png)$ [NC]
-RewriteCond %{REQUEST_URI} ^(.*)/(.*)/(.*)$ [NC]
-RewriteRule ^(.*)/(.*)/(.*)$ index.php?url=$1&id=$2 [QSA,L]
-
 #  path /page/id
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_URI} !^.*\.(jpg|css|js|gif|png)$ [NC]
