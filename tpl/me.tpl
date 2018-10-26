@@ -15,4 +15,3 @@
   </p>
   <button type="submit" name="user-edit">Sauvegarder mes informations TODO:JQUERY POUR QUE CE SOIT DISABLE SAUF SI IL MODIFIE UN CHAMP</button>
 </form>
-<p><a href="<?= BASE_URL ?>list/<?= $task->list_id ?>#<?= $task->id ?>">Retour</a></p>
