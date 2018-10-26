@@ -16,15 +16,14 @@ if(isset($_POST['submit'])) {
 
     $errors[] = (countEmail($email) < 1) ? "Cette email n'est associée à aucune compte." : NULL;
 
-    $errors = getErrors($error);
+    $errors = getErrors($errors);
 
     if(empty($errors)) {
         if(checkPass($email, $password)) {
             $_SESSION['id'] = getId($email);
             header('Location: ' . BASE_URL . 'home/');
-        } else {
-            $errors[] = "Mot de passe incorrect.";
         }
+        $errors[] = "Mot de passe incorrect.";
     }
 }
 

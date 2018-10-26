@@ -1,9 +1,8 @@
 <?php
 require 'model/listModel.php';
 
-if (!validate($_GET['id'])) {
+if (!validate($_GET['id']))
     header('Location: ' . BASE_URL . 'home/');
-}
 
 if (isset($_POST['add-task'])) {
     $name = $_POST['task-name'];
@@ -21,18 +20,15 @@ if (isset($_POST['add-task'])) {
 
     $errors = getErrors($errors);
 
-    if (empty($errors)) {
+    if (empty($errors))
         createTask($name, $_POST['list_id'], "$deadline[date] $deadline[time]");
-    }
 }
 
-if(isset($_POST['task-done'])) {
+if(isset($_POST['task-done']))
     taskDone($_POST['task-id']);
-}
 
-if(isset($_POST['task-clear'])) {
+if(isset($_POST['task-clear']))
     taskClear($_POST['task-id']);
-}
 
 $list = getList($_GET['id']);
 $tasks = getTasks($_GET['id']);

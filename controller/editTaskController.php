@@ -1,9 +1,8 @@
 <?php
 require 'model/editTaskModel.php';
 
-if (!validate($_GET['id'])) {
+if (!validate($_GET['id']))
     header('Location: ' . BASE_URL . 'home/');
-}
 
 if (isset($_POST['task-edit'])) {
   $id = $_POST['task-id'];

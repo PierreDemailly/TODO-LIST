@@ -32,11 +32,10 @@ function existId($project_id)
     $req->bindValue(':project_id', $project_id, PDO::PARAM_INT);
     $req->execute();
     $rep = $req->rowCount();
-    if ($rep > 0) {
+    if ($rep > 0)
         return true;
-    } else {
-        return false;
-    }
+        
+    return false;
 }
 
 function createList($list_name, $project_id)
@@ -50,9 +49,8 @@ function createList($list_name, $project_id)
 
 function validate($id)
 {
-    if (empty($id) || !ctype_digit($id) || !existId($id)) {
+    if (empty($id) || !ctype_digit($id) || !existId($id))
         return false;
-    }
 
     return true;
 }

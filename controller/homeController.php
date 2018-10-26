@@ -22,9 +22,8 @@ if(isset($_POST['add-project'])) {
 
     $errors = getErrors($errors);
 
-    if(empty($errors)) {
+    if(empty($errors))
         createProject($name, $desc, "$deadline[date] $deadline[time]", $_SESSION['id'], $category);
-    }
 }
 
 $projects = getProjects();

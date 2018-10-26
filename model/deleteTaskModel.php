@@ -7,19 +7,16 @@ function existId($task_id)
   $req->bindValue(':task_id', $task_id, PDO::PARAM_INT);
   $req->execute();
   $rep = $req->rowCount();
-  if ($rep > 0) {
+  if ($rep > 0)
     return true;
-  } else {
-    return false;
-  }
 
+  return false;
 }
 
 function validate($id)
 {
-  if (empty($id) || !ctype_digit($id) || !existId($id)) {
+  if (empty($id) || !ctype_digit($id) || !existId($id))
     return false;
-  }
 
   return true;
 }
