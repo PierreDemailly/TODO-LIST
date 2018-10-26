@@ -8,10 +8,10 @@
     <?php }
 } ?>
       <label for="list-name">Ajouter une tâche</label>
-      <input class="u-full-width" type="text" id="list-name" name="task-name" placeholder="Ma tâche" />
+      <input class="u-full-width" type="text" id="list-name" name="task-name" placeholder="Ma tâche" required/>
       <input type="hidden" name="list_id" value="<?= $list->id ?>">
-      <input class="u-full-width" type="date" value="<?= date("Y-m-d", strtotime('tomorrow')) ?>" id="task-deadline" name="task-deadline-date" />
-      <input class="u-full-width" type="time" value="12:00" name="task-deadline-time" />
+      <input class="u-full-width" type="date" value="<?= date("Y-m-d", strtotime('tomorrow')) ?>" id="task-deadline" name="task-deadline-date" required/>
+      <input class="u-full-width" type="time" value="12:00" name="task-deadline-time" required/>
       <button class="button-primary" type="submit" name="add-task">Confirmer</button>
     </form>
 </div>

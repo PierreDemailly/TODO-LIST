@@ -10,7 +10,7 @@
             } ?>
         <div class="four columns">
             <label for="list-name">Nom de la liste</label>
-            <input class="u-full-width" type="text" id="list-name" name="list-name" placeholder="My list" />
+            <input class="u-full-width" type="text" id="list-name" name="list-name" placeholder="My list" required/>
         </div>
     </div>
     <button class="button-primary" type="submit" name="add-list">Confirmer</button>

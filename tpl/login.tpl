@@ -9,11 +9,11 @@
             } ?>
             <div class="row">
             <label for="email">Email</label>
-            <input type="text" name="email" id="email" placeholder="Votre adresse email" />
+            <input type="text" name="email" id="email" placeholder="Votre adresse email" required/>
             </div>
             <div class="row">
             <label for="password">Mot de passe</label>
-            <input type="password" name="password" id="password" placeholder="Votre mot de passe" />
+            <input type="password" name="password" id="password" placeholder="Votre mot de passe" required/>
             </div>
             <button class="button-primary" type="submit" name="submit">Confirmer</button>
         </form>

@@ -5,16 +5,16 @@
     <div class="row">
         <div class="four columns">
             <label for="project-name">Nom du projet</label>
-            <input class="u-full-width" type="text" id="project-name" name="project-name" placeholder="My project" />
+            <input class="u-full-width" type="text" id="project-name" name="project-name" placeholder="My project" required/>
         </div>
         <div class="four columns">
             <label for="project-desc">Description du project</label>
-            <input class="u-full-width" type="text" id="project-desc" name="project-desc" placeholder="A short description about your project" />
+            <input class="u-full-width" type="text" id="project-desc" name="project-desc" placeholder="A short description about your project" required/>
         </div>
         <div class="four columns">
             <label for="project-deadline">Date limite du projet</label>
-            <input class="u-full-width" type="date" id="project-deadline" name="project-deadline-date" />
-            <input class="u-full-width" type="time" name="project-deadline-time" />
+            <input class="u-full-width" type="date" id="project-deadline" name="project-deadline-date" required/>
+            <input class="u-full-width" type="time" name="project-deadline-time" required/>
         </div>
         <div class="four columns">
             <label for="project-category">Catégory du projet</label>
