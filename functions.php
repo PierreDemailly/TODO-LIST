@@ -61,7 +61,7 @@ function getErrors($errors) {
 
 function getProjectsForNavbar() {
   $db = getData();
-  $req = $db->prepare('SELECT id, name FROM project WHERE user_id = :id');
+  $req = $db->prepare('SELECT id, name FROM project WHERE user_id = :id AND deleted = 0');
   $req->bindValue(':id', $_SESSION['id'], PDO::PARAM_INT);
   $req->execute();
   return $rep = $req->fetchAll();

@@ -28,7 +28,7 @@
   <li><a href="">Accueil</a></li>
   <li>
     <?php if(!empty($navbar_projects)) { ?>
-      <a href="<?= BASE_URL ?>home/">Mes projets</a>
+      <a href="<?= BASE_URL ?>home/">Projets en cours</a>
       <ul>
         <?php foreach($navbar_projects as $navbar_project) { ?>
           <li><a href="<?= BASE_URL ?>project/<?= $navbar_project->id ?>"><?= htmlspecialchars($navbar_project->name) ?></a>
