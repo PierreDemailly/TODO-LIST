@@ -12,7 +12,7 @@ function createProject($name, $desc, $dl, $category) {
 
 function getProjects() {
     $db = getData();
-    $req = $db->prepare('SELECT project.id, project.name, COUNT(list.id) AS list_count
+    $req = $db->prepare('SELECT project.id, project.name, description, COUNT(list.id) AS list_count
                       FROM project
                       LEFT JOIN list ON (list.project_id = project.id)
                       WHERE user_id = :session_id AND deleted = 0
