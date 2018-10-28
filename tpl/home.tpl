@@ -1,51 +1,116 @@
 <div class="container">
-    <h2>Liste des projets en cours</h2>
-    <p><a href="<?= BASE_URL ?>binProject/">Voir les projets supprimés</a></p>
-<form method="post" id="add-form">
-    <div class="row">
-        <div class="four columns">
-            <label for="project-name">Nom du projet</label>
-            <input class="u-full-width" type="text" id="project-name" name="project-name" placeholder="My project" required/>
+
+  <h1>Liste des projets en cours</h1>
+  <p>
+    <a href="<?= BASE_URL ?>binProject/">Voir les projets supprimés</a><br>
+    <a href="#new-project">Nouveau projet</a>
+  </p>
+
+  <div class="row">
+
+  <?php foreach($projects as $project): ?>
+  
+    <div class="col-sm-6 col-md-4 col-lg-2">
+
+      <div class="card">
+
+        <div class="card-header"><?= htmlspecialchars($project->name) ?></div>
+
+        <div class="card-body">
+          <p class="card-text"><?= htmlspecialchars($project->description) ?></p>
+          <a href="<?= BASE_URL ?>project/<?= $project->id ?>" class="card-link">Voir le projet</a>
         </div>
-        <div class="four columns">
-            <label for="project-desc">Description du project</label>
-            <input class="u-full-width" type="text" id="project-desc" name="project-desc" placeholder="A short description about your project" required/>
+
+        <div class="card-footer">
+          <?= $project->list_count ?>
+
+          <?php if($project->list_count > 1): ?>
+
+          listes
+          <?php else: ?>
+
+          liste
+          <?php endif;?>
+
         </div>
-        <div class="four columns">
-            <label for="project-deadline">Date limite du projet</label>
-            <input class="u-full-width" type="date" id="project-deadline" name="project-deadline-date" required/>
-            <input class="u-full-width" type="time" name="project-deadline-time" required/>
-        </div>
-        <div class="four columns">
-            <label for="project-category">Catégory du projet</label>
-            <select name="project-category" id="project-category">
-                <option value="html">HTML CSS</option>
-                <option value="js">Javascript</option>
-                <option value="php">PHP</option>
-                <option value="others">Autres</option>
-            </select>
-        </div>
+
+      </div>
+
     </div>
-    <button class="button-primary" type="submit" name="add-project">Confirmer</button>
-    <button class="button" type="button" id="form-cancel">Annuler</button>
-</form>
-<?php if(isset($error)) {
-    foreach($error as $err) { ?>
-        <p class="error"><?= $err ?></p>
-    <?php }
-} ?>
-<button class="button-primary m-top" id="form-add">Nouveau projet</button>
-    <div class="row">
-<?php foreach($projects as $project): ?>
-<div class="three columns box clickable" data-id="<?= $project->id ?>" id="project-box">
-    <div class="title"><?= htmlspecialchars($project->name) ?></div>
-    <div class="row task center big m-top"><?= $project->list_count ?></div>
-    <?php if($project->list_count > 1) { ?>
-    <div class="row task center imp">listes</div>
-    <?php } else { ?>
-    <div class="row task center imp">liste</div>
-    <?php } ?>
+
+  <?php endforeach; ?>
+
+  </div>
+
+  <form method="post" class="mt-5">
+
+    <p class="h2">Nouveau projet</p>
+
+    <?php
+    if (isset($errors)):
+      foreach ($errors as $error):
+    ?>
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      <?= $error ?>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
     </div>
-<?php endforeach; ?>
+
+    <?php
+      endforeach;
+    endif;
+    ?>
+
+    <div class="row" id="new-project">
+
+      <div class="col-md-6 col-lg-3">
+
+        <div class="form-group">
+          <label for="name">Nom du projet</label>
+          <input type="text" class="form-control" name="name" id="name" placeholder="Nom du projet" required>
+        </div>
+
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" class="form-control" name="description" id="description" placeholder="Description du projet" required>
+        </div>
+
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+
+        <div class="form-group">
+          <label for="deadline">Date limite du projet</label>
+          <input type="date" class="form-control" name="project-deadline-date" id="deadline" required/>
+          <input type="time" class="form-control mt-1" name="project-deadline-time" required/>
+        </div>
+
+      </div>
+
+      <div class="col-md-6 col-lg-3">
+
+        <div class="form-group">
+          <label for="category">Catégory du projet</label>
+          <select class="form-control" name="project-category" id="category">
+            <option value="html">HTML CSS</option>
+            <option value="js">Javascript</option>
+            <option value="php">PHP</option>
+            <option value="others">Autres</option>
+          </select>
+        </div>
+
+      </div>
+
     </div>
+
+    <button type="submit" class="btn btn-primary" name="submit">Confirmer</button>
+
+  </form>
+
 </div>
