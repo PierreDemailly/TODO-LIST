@@ -129,7 +129,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    
+
     <?php
       endforeach;
     endif;
@@ -144,8 +144,8 @@
     <div class="form-group">
 
       <label for="deadline">Date limite de la tâche</label>
-      <input type="date" class="form-control" name="task-deadline-date" id="deadline" value="<?= date("Y-m-d", strtotime('tomorrow')) ?>" required/>
-      <input type="time" class="form-control mt-1" name="task-deadline-time" value="12:00"  required/>
+      <input type="date" class="form-control" name="deadline-date" id="deadline" value="<?= date("Y-m-d", strtotime('tomorrow')) ?>" required/>
+      <input type="time" class="form-control mt-1" name="deadline-time" value="12:00"  required/>
     </div>
 
     <button type="submit" class="btn btn-primary" name="add-task">Confirmer</button>

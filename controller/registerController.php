@@ -7,11 +7,11 @@ if(isset($_SESSION['id']))
     header('Location: ' . BASE_URL . 'home/');
 
 if(isset($_POST['submit'])) {
-    $pseudo      = $_POST['user-pseudo'];
-    $email       = strtolower($_POST['user-email']);
-    $email_v     = strtolower($_POST['user-email-v']);
-    $password    = $_POST['user-password'];
-    $password_v  = $_POST['user-password-v'];
+    $pseudo      = $_POST['pseudo'];
+    $email       = strtolower($_POST['email']);
+    $email_v     = strtolower($_POST['email-v']);
+    $password    = $_POST['password'];
+    $password_v  = $_POST['password-v'];
     $email_count  = countEmail($email);
     $pseudo_count = countPseudo($pseudo);
     $errors      = [];

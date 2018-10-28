@@ -21,9 +21,6 @@ if (isset($_POST['add-list'])) {
         createList($name);
 }
 
-if( isset($_POST['delete-list']))
-    deleteList($_POST['list-id']);
-
 $project = getProjectById();
 $lists = getListsById();
 

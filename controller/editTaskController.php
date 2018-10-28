@@ -5,11 +5,11 @@ if (!validateGetId())
     header('Location: ' . BASE_URL . 'home/');
 
 if (isset($_POST['task-edit'])) {
-  $id = $_POST['task-id'];
-  $name = $_POST['task-name'];
-  $date = $_POST['task-date'];
-  $time = $_POST['task-time'];
-  $list = $_POST['task-list'];
+  $id = $_POST['id'];
+  $name = $_POST['name'];
+  $date = $_POST['date'];
+  $time = $_POST['time'];
+  $list = $_POST['list'];
   $errors = [];
 
   $errors[] = (empty($name)) ? "Veuillez nommer votre tâche." : NULL;

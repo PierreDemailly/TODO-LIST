@@ -5,10 +5,10 @@ if (!validateGetId())
     header('Location: ' . BASE_URL . 'home/');
 
 if (isset($_POST['add-task'])) {
-    $name = $_POST['task-name'];
+    $name = $_POST['name'];
     $deadline = [
-        'date' => $_POST['task-deadline-date'],
-        'time' => $_POST['task-deadline-time']
+        'date' => $_POST['deadline-date'],
+        'time' => $_POST['deadline-time']
     ];
     $errors = [];
 

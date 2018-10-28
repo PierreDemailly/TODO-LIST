@@ -36,7 +36,7 @@
 
     <div class="form-group">
       <label>Liste:</label>
-      <select name="task-list" class="form-control">
+      <select name="list" class="form-control">
 
         <?php foreach($lists as $list) { ?>
 

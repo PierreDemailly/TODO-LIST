@@ -76,7 +76,7 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    
+
     <?php
       endforeach;
     endif;
@@ -86,7 +86,7 @@
 
     <div class="form-group">
         <label for="name">Nom de la liste</label>
-        <input type="text" class="form-control" name="name" id="name" placeholder="My list" required/>
+        <input type="text" class="form-control" name="list-name" id="name" placeholder="My list" required/>
     </div>
 
     <button type="submit" class="btn btn-primary" name="add-list">Confirmer</button>

@@ -17,13 +17,6 @@ function getListsById()
     return $rep = $req->fetchAll();
 }
 
-function deleteList($list_id)
-{
-  $db = getData();
-  $req = $db->prepare('DELETE FROM list WHERE id = :id');
-  $req->bindValue(':id', $list_id, PDO::PARAM_INT);
-  $req->execute();
-}
 
 function existProjectId()
 {

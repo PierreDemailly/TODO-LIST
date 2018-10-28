@@ -2,13 +2,13 @@
 require 'model/homeModel.php';
 
 if(isset($_POST['add-project'])) {
-    $name = $_POST['project-name'];
-    $desc = $_POST['project-desc'];
+    $name = $_POST['name'];
+    $desc = $_POST['description'];
     $deadline = [
-        'date' => $_POST['project-deadline-date'],
-        'time' => $_POST['project-deadline-time']
+        'date' => $_POST['deadline-date'],
+        'time' => $_POST['deadline-time']
     ];
-    $category = $_POST['project-category'];
+    $category = $_POST['category'];
     $errors = [];
 
     $errors = (empty($name)

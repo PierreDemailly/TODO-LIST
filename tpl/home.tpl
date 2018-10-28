@@ -9,7 +9,7 @@
   <div class="row">
 
   <?php foreach($projects as $project): ?>
-  
+
     <div class="col-sm-6 col-md-4 col-lg-2">
 
       <div class="card">
@@ -87,8 +87,8 @@
 
         <div class="form-group">
           <label for="deadline">Date limite du projet</label>
-          <input type="date" class="form-control" name="project-deadline-date" id="deadline" required/>
-          <input type="time" class="form-control mt-1" name="project-deadline-time" required/>
+          <input type="date" class="form-control" name="deadline-date" id="deadline" required/>
+          <input type="time" class="form-control mt-1" name="deadline-time" required/>
         </div>
 
       </div>
@@ -97,7 +97,7 @@
 
         <div class="form-group">
           <label for="category">Catégory du projet</label>
-          <select class="form-control" name="project-category" id="category">
+          <select class="form-control" name="category" id="category">
             <option value="html">HTML CSS</option>
             <option value="js">Javascript</option>
             <option value="php">PHP</option>
