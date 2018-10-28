@@ -1,3 +1,13 @@
+  <?php if($_HAS_NAVBAR): ?>
+
+  <nav class="nav justify-content-center">
+    <p class="heading">
+      Made by <a href="https://github.com/PierreDemailly">Pierre Demailly</a>
+    </p>
+  </nav>
+
+  <?php endif; ?>
+
   <script type="text/javascript">
   var BASE_URL = <?= BASE_URL ?>;
   </script>
