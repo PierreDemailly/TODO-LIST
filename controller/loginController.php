@@ -6,7 +6,7 @@ $_HAS_NAVBAR = false;
 if(isset($_SESSION['id']))
     header('Location: ' . BASE_URL . 'home/');
 elseif(isset($_COOKIE['auth-token'])) {
-    $_SESSION['id'] = getIdByAuthToken($_COOKIE['auth-token']);
+    $_SESSION['id'] = getIdByAuthToken($_COOKIE['auth-token'])->id;
     header('Location: ' . BASE_URL . 'home/');
 }
 

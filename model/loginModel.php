@@ -22,5 +22,5 @@ function getIdByAuthToken($token) {
     $req = $db->prepare('SELECT id FROM user WHERE auth_token = :token');
     $req->bindValue(':token', $token, PDO::PARAM_STR);
     $req->execute();
-    return $req = $req->fetch();
+    return $rep = $req->fetch();
 }
