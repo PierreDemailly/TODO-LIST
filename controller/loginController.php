@@ -5,6 +5,10 @@ $_HAS_NAVBAR = false;
 
 if(isset($_SESSION['id']))
     header('Location: ' . BASE_URL . 'home/');
+elseif(isset($_COOKIE['auth-token'])) {
+    $_SESSION['id'] = getIdByAuthToken($_COOKIE['auth-token']);
+    header('Location: ' . BASE_URL . 'home/');
+}
 
 if(isset($_POST['submit'])) {
     $email = strtolower($_POST['email']);
@@ -20,6 +24,11 @@ if(isset($_POST['submit'])) {
 
     if(empty($errors)) {
         if(checkPass($email, $password)) {
+            if($_POST['stay-auth'] && !$_COOKIE['auth-token']) {
+                $token = bin2hex(random_bytes(90));
+                setcookie('auth-token', $token, time() + 60 * 60 * 24 * 365, '/', 'localhost', false, true);
+                insertToken(getId($email), $token);
+            }
             $_SESSION['id'] = getId($email);
             header('Location: ' . BASE_URL . 'home/');
         }
