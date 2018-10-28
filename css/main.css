@@ -1,95 +1,9 @@
-#add-form {
-    display:none;
-}
-.box {
-    height:150px;
-    border:1px solid #dfe6e9;
-    width:100%;
-    margin:10px 10px 0 0;
-}
-.title {
-    width:100%;
-    text-align:center;
-    padding:20px 0;
-    border-bottom: 1px solid #dfe6e9;
-    color:#a29bfe;
-    text-transform:uppercase;
-    font-weight:bold;
-}
-.m-top {
-    margin-top:10px;
-}
-.task {
-    font-family:sans-serif;
-    color:#b2bec3;
-    font-weight:lighter;
-}
-.big {
-    font-size:40px;
-    height:40px;
-    line-height:40px;
-}
-.center {
-    text-align:center;
-}
-.imp {
-    font-weight:normal;
-    text-decoration:underline;
-}
-.m-auto {
-    margin:auto !important;
-    display:block;
-    float:none;
-}
-.clickable {
-    cursor:pointer;
-}
-.clickable:hover {
-    opacity:0.7;
-}
-.container {
-    padding-bottom:10px;
-    position:relative;
-    z-index:1;
-}
-.heading {
-    text-align:center;
-    padding:20px 0;
-    border-bottom: 1px solid #dfe6e9;
-    color:#a29bfe;
-    text-transform:uppercase;
-    font-weight:bold;
-}
-.error {
-    background:#d63031;
-    padding:8px 4px;
-    color:#fff;
-    border-radius:4px;
-}
-.list-box {
-    background:#f5f6fa;
-    margin:10px;
-    padding:5px;
-    border-radius:2px 2px 0 0;
-    border-bottom:4px solid #c23616;
-}
-.list-box ul li {
-    background:#ffffff;
-    list-style:none;
-    padding:4px 8px;
-    margin:5px 0;
-    border-radius: 10px;
-    text-transform:lowercase;
-}
-.list-box ul li::first-letter {
-    text-transform: capitalize;
-}
 .icon {
     width:20px;
     height:20px;
-    float:right;
     margin:0 4px;
     cursor:pointer;
+    float:right;
 }
 .validate {
     background:url('../img/tick_mark.png');
@@ -105,137 +19,13 @@
     background-size: cover;
     background-position: center center;
 }
-.btn-delete {
-    background:#c23616;
-    color:#fff;
-    border:0;
-}
-.btn-delete:hover {
-    color:#fff;
-}
-.deadline {
-    font-size: small;
-    margin:0;
-    text-transform: capitalize;
-}
-.deadline > span {
-    font-weight: bold;
-    color: #e9ade1;
-}
-.inline-form {
-    display:inline;
-    margin:0;
-}
 .nobtn {
+    background:transparent;
     margin:0;
     padding:0;
     border:0;
-    float:right;
     height:20px;
-}
-.done {
-    background: #85ee77 !important;
-}
-/*
-.navbar {
-    background:red;
-    height:50px;
-    display:flex;
-    list-style:none;
-}
-.navbar > li {
-    height:50px;
-    margin:0;
-    padding:0 20px;
-    line-height:50px;
-}
-.navbar > li:hover {
-    background:orangered;
-}
-h1 {
-    z-index: 1;
-}
-.navbar > li ul {
-    padding:0;
-    margin:0;
-    z-index:999999;
-}
-.navbar > li ul li {
-    background:red;
-    height:50px;
-    display:block;
-    margin:0;
-    padding:0 20px;
-    z-index:99999;
-}
-.navbar > li:hover ul li {
-    display:block;
-}
-.navbar > li ul li:hover {
-    background:orange;
-} */
-.navbar, .navbar ul {
-    background:#2D7D9A;
-    list-style: none;
-    height:50px;
-    margin:0;padding:0;
-    z-index:2;
-    font-family:'Roboto Mono', Verdana, Geneva, Tahoma, sans-serif;
-}
-.navbar li {
-    height:50px;
-    float:left;
-    line-height:50px;
-    padding:0 10px;
-}
-.navbar li ul {
-    background:#0099BC;
-    position:absolute;
-    margin:0;
-    padding:0;
-    left:0;
-    width:100%;
-    display:none;
-}
-.navbar li ul li {
     display:inline;
-}
-.navbar li ul li ul {
-    background:#038387;
-    width:100%;
-    /* left:5%; */
-    top:45px;
-}
-.navbar li a {
-    color:#bfffff;
-    text-decoration:none;
-}
-.navbar li a:hover {
-    color:white;
-    text-shadow:1px 1px 10px #bfffff;
-}
-.navbar li:hover > ul {
-    display:block;
-}
-.navbar li ul li:hover > ul {
-    display:block;
-}
-progress[value] {
-    -webkit-appearance: none;
-   appearance: none;
-   -moz-appearance: none;
-   border: none;
-    width: 100%;
-    height: 20px;
-    background:white;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25) inset;
-  }
-  progress[value]::-webkit-progress-bar, progress[value]::-moz-progress-bar {
-background:white;
-border-radius:2px;
-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-  }
-  progress[value]::-webkit-progress-value {
-background:green;
-border-radius:2px;
+    float:right;
+    cursor:pointer;
 }
