@@ -28,7 +28,9 @@ if(isset($_POST['submit'])) {
                 $token = bin2hex(random_bytes(90));
                 setcookie('auth-token', $token, time() + 60 * 60 * 24 * 365, '/', 'localhost', false, true);
                 insertToken(getId($email), $token);
-            }
+            } elseif($_COOKIE['auth-token'])
+                unset($_COOKIE['auth-token']);
+
             $_SESSION['id'] = getId($email);
             header('Location: ' . BASE_URL . 'home/');
         }
