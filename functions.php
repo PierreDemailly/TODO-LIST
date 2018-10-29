@@ -28,7 +28,9 @@ function routing($url) {
       'binProject',
       'logout'
   ];
-  if(in_array($url, $routes))
+  if($url === 'install')
+      return 'install/index.php';
+  elseif(in_array($url, $routes))
       return 'controller/' . $url . 'Controller.php';
   else
       return '404.html';
