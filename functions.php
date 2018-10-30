@@ -53,6 +53,7 @@ function countEmail($email) {
   return $rep = $req->rowCount();
 }
 
+/* We save only the errors that are differents to NULL */
 function getErrors($errors) {
   foreach($errors as $err) {
       if($err !== NULL)

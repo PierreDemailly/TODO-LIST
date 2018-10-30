@@ -15,6 +15,7 @@ if (isset($_POST['add-list'])) {
     $errors[] = (strlen($name) < 3) ? "Le nom de votre liste est trop court." : NULL;
     $errors[] = (strlen($name) > 100) ? "Le nom de votre liste est trop long." : NULL;
 
+    /* We save only the errors that are differents to NULL */
     $errors = getErrors($errors);
 
     if (empty($errors))

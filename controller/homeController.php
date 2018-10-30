@@ -20,6 +20,7 @@ if(isset($_POST['add-project'])) {
 
     $errors = (strlen($desc) > 255) ? "La description de votre projet est trop longue." : NULL;
 
+    /* We save only the errors that are differents to NULL */
     $errors = getErrors($errors);
 
     if(empty($errors))

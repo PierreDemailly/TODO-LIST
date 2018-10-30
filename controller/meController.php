@@ -18,6 +18,7 @@ if(isset($_POST['user-edit'])) {
   $errors[] = (!filter_var($email, FILTER_VALIDATE_EMAIL)) ? "Veuillez entrer une email valide." : NULL;
   $errors[] = ($email_count > 1) ? "Cette email est déjà utilisée." : NULL;
 
+  /* We save only the errors that are differents to NULL */
   $errors = getErrors($errors);
 
   if(empty($errors))

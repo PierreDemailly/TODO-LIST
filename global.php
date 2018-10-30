@@ -10,4 +10,4 @@ $_HAS_NAVBAR = true;
 const BASE_URL = "/TODOLIST/";
 
 if(isset($_SESSION['id']))
-$navbar_projects = getProjectsForNavbar();
+  $navbar_projects = getProjectsForNavbar();
