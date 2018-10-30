@@ -69,7 +69,7 @@
       $filename = 'config/config.php';
       $file = fopen($filename, 'r') or die("Fichier manquant"); # Lecture
       $file_content = file_get_contents($filename);
-      $replace_content = str_replace(1, 0, $file_content);
+      $replace_content = str_replace('0', '1', $file_content);
       $replace_content = str_replace('CONFIG_MYSQL_HOST', $_SESSION['mysql']['host'], $replace_content);
       $replace_content = str_replace('CONFIG_MYSQL_DBNAME', $_SESSION['mysql']['host'], $replace_content);
       $replace_content = str_replace('CONFIG_MYSQL_USER', $_SESSION['mysql']['host'], $replace_content);
