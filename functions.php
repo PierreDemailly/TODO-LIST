@@ -1,7 +1,7 @@
 <?php
 function getData() {
   try {
-      $db = new PDO('mysql:host=localhost;dbname=todolist', 'root', 'root', [
+      $db = new PDO('mysql:host='.mysql_host.';dbname='.mysql_dbname.'', mysql_user, mysql_password, [
           PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
           PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ
       ]);
