@@ -20,6 +20,7 @@ if(isset($_POST['submit'])) {
 
     $errors[] = (countEmail($email) < 1) ? "Cette email n'est associée à aucune compte." : NULL;
 
+    /* We save only the errors that are differents to NULL */
     $errors = getErrors($errors);
 
     if(empty($errors)) {

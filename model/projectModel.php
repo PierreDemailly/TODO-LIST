@@ -11,6 +11,7 @@ function getProjectById()
 function getListsById()
 {
     $db = getData();
+    /* Group concat take all tasks and concatenate dem in one string */
     $req = $db->prepare('SELECT list.id as id, list.name as name, GROUP_CONCAT(task.name ORDER BY task.deadline SEPARATOR \'!dM_mc5d??d,c\') as task_name, GROUP_CONCAT(task.done ORDER BY task.deadline SEPARATOR \'!dM_mc5d??d,c\') as task_done FROM list LEFT JOIN task ON task.list_id = list.id WHERE project_id = :project_id GROUP BY list.id');
     $req->bindValue(':project_id', $_GET['id'], PDO::PARAM_INT);
     $req->execute();

@@ -48,6 +48,7 @@
     $errors[] = (strlen($password) < 6) ? "Votre mot de passe est trop court." : NULL;
     $errors[] = ($password !== $password_v) ? "Les mots de passe ne correspondent pas." : NULL;
 
+    /* We save only the errors that are differents to NULL */
     $errors = getErrors($errors);
 
     if(empty($errors)) {

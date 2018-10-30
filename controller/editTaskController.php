@@ -18,6 +18,7 @@ if (isset($_POST['task-edit'])) {
 
   $errors[] = (empty($date) OR empty($time)) ? "Veuillez donner une date & heure valide." : NULL;
 
+  /* We save only the errors that are differents to NULL */
   $errors = getErrors($errors);
 
   if(empty($errors))

@@ -1,6 +1,7 @@
 <?php
 require 'model/registerModel.php';
 
+/* We don't need navbar */
 $_HAS_NAVBAR = false;
 
 if(isset($_SESSION['id']))
@@ -33,6 +34,7 @@ if(isset($_POST['submit'])) {
     $errors[] = (strlen($password) < 6) ? "Votre mot de passe est trop court." : NULL;
     $errors[] = ($password !== $password_v) ? "Les mots de passe ne correspondent pas." : NULL;
 
+    /* We save only the errors that are differents to NULL */
     $errors = getErrors($errors);
 
     if(empty($errors)) {
