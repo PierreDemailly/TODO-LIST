@@ -71,15 +71,18 @@
       $file_content = file_get_contents($filename);
       $replace_content = str_replace('0', '1', $file_content);
       $replace_content = str_replace('CONFIG_MYSQL_HOST', $_SESSION['mysql']['host'], $replace_content);
-      $replace_content = str_replace('CONFIG_MYSQL_DBNAME', $_SESSION['mysql']['host'], $replace_content);
-      $replace_content = str_replace('CONFIG_MYSQL_USER', $_SESSION['mysql']['host'], $replace_content);
-      $replace_content = str_replace('CONFIG_MYSQL_PASSWORD', $_SESSION['mysql']['host'], $replace_content);
+      $replace_content = str_replace('CONFIG_MYSQL_DBNAME', $_SESSION['mysql']['dbname'], $replace_content);
+      $replace_content = str_replace('CONFIG_MYSQL_USER', $_SESSION['mysql']['user'], $replace_content);
+      $replace_content = str_replace('CONFIG_MYSQL_PASSWORD', $_SESSION['mysql']['password'], $replace_content);
       fclose($file);
 
       $file = fopen($filename, 'w+') or die("Fichier manquant"); # Ecriture
-  fwrite($file, $replace_content);
-  fclose($file);
+      fwrite($file, $replace_content);
+      fclose($file);
 
+      opendir('install/');
+      unlink('install/index.php') or die('ok');
+      unlink('install/database.sql');
       rmdir('install');
       header('Location: '. BASE_URL);
     }
